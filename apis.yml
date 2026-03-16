@@ -1,9 +1,11 @@
+aid: crystal-reports
 name: Crystal Reports
 description: APIs and resources for Crystal Reports, a business intelligence application for designing and generating reports from various data sources
-image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-url: https://www.sap.com/products/technology-platform/crystal-reports.html
-created: '2024'
-modified: '2024'
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml
+created: '2024-01-01'
+modified: '2026-03-16'
 apis:
 - name: Crystal Reports REST API
   description: RESTful API for managing and generating Crystal Reports programmatically
@@ -70,9 +72,8 @@ common:
 - type: Privacy Policy
   url: https://www.sap.com/about/legal/privacy.html
 maintainers:
-- FN: SAP
-  email: info@sap.com
-  url: https://www.sap.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 tags:
 - Business Intelligence
 - Reporting
