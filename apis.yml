@@ -1,83 +1,92 @@
 aid: crystal-reports
 name: Crystal Reports
-description: APIs and resources for Crystal Reports, a business intelligence application for designing and generating reports from various data sources
+description: >-
+  APIs and resources for Crystal Reports, a business intelligence application for
+  designing and generating reports from various data sources.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-url: https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-03-16'
 apis:
-- name: Crystal Reports REST API
-  description: RESTful API for managing and generating Crystal Reports programmatically
-  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
-  baseURL: https://api.sap.com/crystal/v1
-  tags:
-  - Reports
-  - Business Intelligence
-  - Data Visualization
-  - Enterprise
-  properties:
-  - type: Documentation
-    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
-  - type: OpenAPI
-    url: https://api.sap.com/crystal/openapi.json
-  - type: Authentication
-    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  contact:
-  - FN: SAP Support
-    email: support@sap.com
-    url: https://support.sap.com
-- name: Crystal Reports SDK
-  description: Software Development Kit for embedding Crystal Reports into applications
-  humanURL: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
-  baseURL: https://www.sap.com/sdk/crystal
-  tags:
-  - SDK
-  - .NET
-  - Java
-  - Embedding
-  properties:
-  - type: Documentation
-    url: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
-  - type: Download
-    url: https://www.sap.com/products/technology-platform/crystal-reports/downloads.html
-  - type: Code Samples
-    url: https://github.com/SAP-samples/crystal-reports
-- name: Crystal Reports Server REST API
-  description: API for Crystal Reports Server administration and report management
-  humanURL: https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM
-  baseURL: https://server:port/biprws
-  tags:
-  - Server
-  - Administration
-  - Report Management
-  - BI Platform
-  properties:
-  - type: Documentation
-    url: https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/rest-api
-  - type: API Reference
-    url: https://help.sap.com/doc/rest-api-reference
+  - name: Crystal Reports REST API
+    description: >-
+      RESTful API for managing and generating Crystal Reports programmatically.
+    image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+    humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+    baseURL: https://api.sap.com/crystal/v1
+    tags:
+      - Reports
+      - Business Intelligence
+      - Data Visualization
+      - Enterprise
+    properties:
+      - type: Documentation
+        url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+      - type: OpenAPI
+        url: https://api.sap.com/crystal/openapi.json
+      - type: Authentication
+        url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+    contact:
+      - FN: SAP Support
+        email: support@sap.com
+        url: https://support.sap.com
+  - name: Crystal Reports SDK
+    description: >-
+      Software Development Kit for embedding Crystal Reports into applications.
+    humanURL: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
+    baseURL: https://www.sap.com/sdk/crystal
+    tags:
+      - SDK
+      - .NET
+      - Java
+      - Embedding
+    properties:
+      - type: Documentation
+        url: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
+      - type: Download
+        url: 
+          https://www.sap.com/products/technology-platform/crystal-reports/downloads.html
+      - type: Code Samples
+        url: https://github.com/SAP-samples/crystal-reports
+  - name: Crystal Reports Server REST API
+    description: >-
+      API for Crystal Reports Server administration and report management.
+    humanURL: 
+      https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM
+    baseURL: https://server:port/biprws
+    tags:
+      - Server
+      - Administration
+      - Report Management
+      - BI Platform
+    properties:
+      - type: Documentation
+        url: 
+          https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/rest-api
+      - type: API Reference
+        url: https://help.sap.com/doc/rest-api-reference
 common:
-- type: Portal
-  url: https://api.sap.com
-- type: Blog
-  url: https://blogs.sap.com/tags/73554900100800000134/
-- type: Community
-  url: https://community.sap.com/topics/crystal-reports
-- type: Support
-  url: https://support.sap.com/crystal-reports
-- type: Terms of Service
-  url: https://www.sap.com/about/legal/terms-of-use.html
-- type: Privacy Policy
-  url: https://www.sap.com/about/legal/privacy.html
+  - type: Portal
+    url: https://api.sap.com
+  - type: Blog
+    url: https://blogs.sap.com/tags/73554900100800000134/
+  - type: Community
+    url: https://community.sap.com/topics/crystal-reports
+  - type: Support
+    url: https://support.sap.com/crystal-reports
+  - type: Terms of Service
+    url: https://www.sap.com/about/legal/terms-of-use.html
+  - type: Privacy Policy
+    url: https://www.sap.com/about/legal/privacy.html
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 tags:
-- Business Intelligence
-- Reporting
-- Data Analytics
-- Enterprise Software
-- SAP
-- Crystal Reports
+  - Business Intelligence
+  - Reporting
+  - Data Analytics
+  - Enterprise Software
+  - SAP
+  - Crystal Reports
