@@ -15,45 +15,45 @@ info:
   x-generated-from: documentation
   x-source-url: https://help.sap.com/doc/sapcrystalreportsrestfulwebservices/4.3/en-US/crrest_api_42SP2.pdf
 servers:
-  - url: http://{host}:{port}/biprws
-    description: SAP BusinessObjects BI Platform REST API server
-    variables:
-      host:
-        default: localhost
-        description: Hostname of the SAP BusinessObjects server
-      port:
-        default: '6405'
-        description: Port number for the RESTful web services
+- url: http://{host}:{port}/biprws
+  description: SAP BusinessObjects BI Platform REST API server
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SAP BusinessObjects server
+    port:
+      default: '6405'
+      description: Port number for the RESTful web services
 security:
-  - sapLogonToken: []
+- sapLogonToken: []
 tags:
-  - name: Authentication
-    description: Logon and session management
-  - name: Repository
-    description: Infostore repository navigation and folder browsing
-  - name: Reports
-    description: Report summary and URI information
-  - name: Metadata
-    description: Report structure and metadata
-  - name: Instances
-    description: Transient report instance management
-  - name: Export
-    description: Report export to various formats
-  - name: OData
-    description: OData data service for report row and summary data
+- name: Authentication
+  description: Logon and session management
+- name: Repository
+  description: Infostore repository navigation and folder browsing
+- name: Reports
+  description: Report summary and URI information
+- name: Metadata
+  description: Report structure and metadata
+- name: Instances
+  description: Transient report instance management
+- name: Export
+  description: Report export to various formats
+- name: OData
+  description: OData data service for report row and summary data
 paths:
   /logon/long:
     get:
       operationId: getLogonForm
-      summary: Get logon form template
+      summary: Crystal Reports Get Logon Form Template
       description: >-
         Returns a JSON or XML template for the logon request body,
         showing the required fields for authentication.
       tags:
-        - Authentication
+      - Authentication
       security: []
       parameters:
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Logon form template returned successfully
@@ -68,15 +68,15 @@ paths:
         delay: 100
     post:
       operationId: logon
-      summary: Authenticate with username and password
+      summary: Crystal Reports Authenticate with Username and Password
       description: >-
         Authenticates a user against the SAP BusinessObjects BI Platform
         and returns an X-SAP-LogonToken header for subsequent requests.
       tags:
-        - Authentication
+      - Authentication
       security: []
       parameters:
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/Accept'
       requestBody:
         required: true
         content:
@@ -113,15 +113,15 @@ paths:
   /infostore:
     get:
       operationId: browseInfostore
-      summary: Browse the infostore
+      summary: Crystal Reports Browse the Infostore
       description: >-
         Browse the top-level infostore repository to discover available
         folders and objects.
       tags:
-        - Repository
+      - Repository
       parameters:
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/PreferredViewingLanguage'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
       responses:
         '200':
           description: Infostore browsing results
@@ -139,14 +139,14 @@ paths:
   /infostore/Root%20Folder/children:
     get:
       operationId: listRootFolderContents
-      summary: List root folder contents
+      summary: Crystal Reports List Root Folder Contents
       description: >-
         Returns the children of the Root Folder in the infostore repository.
       tags:
-        - Repository
+      - Repository
       parameters:
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/PreferredViewingLanguage'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
       responses:
         '200':
           description: Root folder contents returned successfully
@@ -164,16 +164,16 @@ paths:
   /infostore/{folderId}/children:
     get:
       operationId: listFolderContents
-      summary: List folder contents by ID
+      summary: Crystal Reports List Folder Contents by ID
       description: >-
         Returns the children of a specific folder identified by its
         infostore ID.
       tags:
-        - Repository
+      - Repository
       parameters:
-        - $ref: '#/components/parameters/FolderId'
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/PreferredViewingLanguage'
+      - $ref: '#/components/parameters/FolderId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
       responses:
         '200':
           description: Folder contents returned successfully
@@ -197,17 +197,17 @@ paths:
   /infostore/{reportId}/rpt:
     get:
       operationId: getReportSummary
-      summary: Get report summary info
+      summary: Crystal Reports Get Report Summary Info
       description: >-
         Returns summary information about a Crystal Report including
         name, title, author, format version, and URIs for export,
         service, and edit operations.
       tags:
-        - Reports
+      - Reports
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/PreferredViewingLanguage'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
       responses:
         '200':
           description: Report summary returned successfully
@@ -231,17 +231,17 @@ paths:
   /infostore/{reportId}/rpt/structure:
     get:
       operationId: getReportStructure
-      summary: Get report structure and metadata
+      summary: Crystal Reports Get Report Structure and Metadata
       description: >-
         Returns the full structural metadata of a Crystal Report including
         datasources, used fields, group conditions, parameters, summary
         fields, running totals, formulas, and subreports.
       tags:
-        - Metadata
+      - Metadata
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
-        - $ref: '#/components/parameters/PreferredViewingLanguage'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
       responses:
         '200':
           description: Report structure returned successfully
@@ -265,16 +265,16 @@ paths:
   /infostore/{reportId}/rpt/instance:
     get:
       operationId: getInstanceForm
-      summary: Get instance creation form
+      summary: Crystal Reports Get Instance Creation Form
       description: >-
         Returns a form template showing the fields needed to create
         a transient report instance, including SuppressData and
         ConnectionInfo options.
       tags:
-        - Instances
+      - Instances
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Instance creation form returned successfully
@@ -297,16 +297,16 @@ paths:
         delay: 200
     post:
       operationId: createReportInstance
-      summary: Create transient report instance
+      summary: Crystal Reports Create Transient Report Instance
       description: >-
         Creates a transient report instance by submitting the instance
         creation form with optional SuppressData and ConnectionInfo
         settings. Returns a resource URI for the created instance.
       tags:
-        - Instances
+      - Instances
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
       requestBody:
         required: true
         content:
@@ -339,55 +339,59 @@ paths:
   /infostore/{reportId}/rpt/export:
     get:
       operationId: exportReport
-      summary: Export report to specified format
+      summary: Crystal Reports Export Report to Specified Format
       description: >-
         Exports a Crystal Report to the specified MIME type format.
         Supports PDF, CSV, Excel, Word, RTF, TTX, XML, plain text,
         and modern Excel (XLSX) formats.
       tags:
-        - Export
+      - Export
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - name: mime_type
-          in: query
-          required: true
-          description: The MIME type of the desired export format
-          schema:
-            type: string
-            enum:
-              - application/PDF
-              - text/csv
-              - application/vnd.ms-excel
-              - application/msword
-              - application/rtf
-              - text/ttx
-              - application/xml
-              - text/plain
-              - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-            example: application/PDF
-        - name: startPageNumber
-          in: query
-          required: false
-          description: Starting page number for the export (PDF only)
-          schema:
-            type: integer
-            minimum: 1
-            example: 1
-        - name: endPageNumber
-          in: query
-          required: false
-          description: Ending page number for the export (PDF only)
-          schema:
-            type: integer
-            minimum: 1
-            example: 10
-        - name: isCreateBookmarksFromGroupTree
-          in: query
-          required: false
-          description: Whether to create bookmarks from the group tree (PDF only)
-          schema:
-            type: boolean
-            example: true
+      - $ref: '#/components/parameters/ReportId'
+      - name: mime_type
+        in: query
+        required: true
+        description: The MIME type of the desired export format
+        schema:
+          type: string
+          enum:
+          - application/PDF
+          - text/csv
+          - application/vnd.ms-excel
+          - application/msword
+          - application/rtf
+          - text/ttx
+          - application/xml
+          - text/plain
+          - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          example: application/PDF
+        example: application/PDF
+      - name: startPageNumber
+        in: query
+        required: false
+        description: Starting page number for the export (PDF only)
+        schema:
+          type: integer
+          minimum: 1
+          example: 1
+        example: 1
+      - name: endPageNumber
+        in: query
+        required: false
+        description: Ending page number for the export (PDF only)
+        schema:
+          type: integer
+          minimum: 1
+          example: 10
+        example: 10
+      - name: isCreateBookmarksFromGroupTree
+        in: query
+        required: false
+        description: Whether to create bookmarks from the group tree (PDF only)
+        schema:
+          type: boolean
+          example: true
+        example: true
       responses:
         '200':
           description: Report exported successfully
@@ -437,15 +441,15 @@ paths:
   /infostore/{reportId}/rpt/data.svc:
     get:
       operationId: getODataServiceDocument
-      summary: Get OData service document
+      summary: Crystal Reports Get OData Service Document
       description: >-
         Returns the OData service document listing available collections
         (Rows and GrandTotals) for the specified report.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: OData service document returned successfully
@@ -469,14 +473,14 @@ paths:
   /infostore/{reportId}/rpt/data.svc/$metadata:
     get:
       operationId: getODataMetadata
-      summary: Get EDMX metadata document
+      summary: Crystal Reports Get EDMX Metadata Document
       description: >-
         Returns the OData EDMX metadata document describing the entity
         types, properties, and associations for the report data service.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/ReportId'
       responses:
         '200':
           description: EDMX metadata document returned successfully
@@ -502,54 +506,58 @@ paths:
   /infostore/{reportId}/rpt/data.svc/Rows:
     get:
       operationId: getReportDataRows
-      summary: Get report data rows
+      summary: Crystal Reports Get Report Data Rows
       description: >-
         Returns report data rows via OData. Supports paging with $skip
         and $skiptoken, row counting with $inlinecount and $count,
         field selection with $select, and parameter filtering.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
-        - name: $skip
-          in: query
-          required: false
-          description: Number of rows to skip
-          schema:
-            type: integer
-            minimum: 0
-            example: 0
-        - name: $skiptoken
-          in: query
-          required: false
-          description: Token for server-driven paging
-          schema:
-            type: string
-            example: '100'
-        - name: $inlinecount
-          in: query
-          required: false
-          description: Include total count in response
-          schema:
-            type: string
-            enum:
-              - allpages
-            example: allpages
-        - name: $count
-          in: query
-          required: false
-          description: Return only the count of rows
-          schema:
-            type: boolean
-            example: true
-        - name: $select
-          in: query
-          required: false
-          description: Comma-separated list of fields to include
-          schema:
-            type: string
-            example: 'CustomerName,OrderAmount'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      - name: $skip
+        in: query
+        required: false
+        description: Number of rows to skip
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - name: $skiptoken
+        in: query
+        required: false
+        description: Token for server-driven paging
+        schema:
+          type: string
+          example: '100'
+        example: '100'
+      - name: $inlinecount
+        in: query
+        required: false
+        description: Include total count in response
+        schema:
+          type: string
+          enum:
+          - allpages
+          example: allpages
+        example: allpages
+      - name: $count
+        in: query
+        required: false
+        description: Return only the count of rows
+        schema:
+          type: boolean
+          example: true
+        example: true
+      - name: $select
+        in: query
+        required: false
+        description: Comma-separated list of fields to include
+        schema:
+          type: string
+          example: 'CustomerName,OrderAmount'
+        example: 'CustomerName,OrderAmount'
       responses:
         '200':
           description: Report data rows returned successfully
@@ -572,15 +580,15 @@ paths:
         delay: 500
     post:
       operationId: pushDataRow
-      summary: Push a row of data to transient instance
+      summary: Crystal Reports Push a Row of Data to Transient Instance
       description: >-
         Pushes a row of data to a transient report instance for
         data-driven report generation.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
       requestBody:
         required: true
         content:
@@ -613,23 +621,23 @@ paths:
   /infostore/{reportId}/rpt/data.svc/Rows({index}):
     get:
       operationId: getReportDataRowByIndex
-      summary: Get specific row by index
+      summary: Crystal Reports Get Specific Row by Index
       description: >-
         Returns a single report data row identified by its zero-based
         index within the Rows collection.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - name: index
-          in: path
-          required: true
-          description: Zero-based index of the row
-          schema:
-            type: integer
-            minimum: 0
-            example: 0
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - name: index
+        in: path
+        required: true
+        description: Zero-based index of the row
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Data row returned successfully
@@ -653,30 +661,31 @@ paths:
   /infostore/{reportId}/rpt/data.svc/Rows({index})/{fieldName}:
     get:
       operationId: getRowFieldValue
-      summary: Get specific field from row
+      summary: Crystal Reports Get Specific Field from Row
       description: >-
         Returns the value of a specific field from a report data row,
         wrapped in OData format.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - name: index
-          in: path
-          required: true
-          description: Zero-based index of the row
-          schema:
-            type: integer
-            minimum: 0
-            example: 0
-        - name: fieldName
-          in: path
-          required: true
-          description: Name of the field to retrieve
-          schema:
-            type: string
-            example: CustomerName
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - name: index
+        in: path
+        required: true
+        description: Zero-based index of the row
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - name: fieldName
+        in: path
+        required: true
+        description: Name of the field to retrieve
+        schema:
+          type: string
+          example: CustomerName
+        example: CustomerName
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Field value returned successfully
@@ -700,30 +709,31 @@ paths:
   /infostore/{reportId}/rpt/data.svc/Rows({index})/{fieldName}/$value:
     get:
       operationId: getRowFieldRawValue
-      summary: Get raw field value
+      summary: Crystal Reports Get Raw Field Value
       description: >-
         Returns the raw, unwrapped value of a specific field from a
         report data row as plain text.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - name: index
-          in: path
-          required: true
-          description: Zero-based index of the row
-          schema:
-            type: integer
-            minimum: 0
-            example: 0
-        - name: fieldName
-          in: path
-          required: true
-          description: Name of the field to retrieve
-          schema:
-            type: string
-            example: OrderAmount
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - name: index
+        in: path
+        required: true
+        description: Zero-based index of the row
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - name: fieldName
+        in: path
+        required: true
+        description: Name of the field to retrieve
+        schema:
+          type: string
+          example: OrderAmount
+        example: OrderAmount
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Raw field value returned successfully
@@ -745,15 +755,15 @@ paths:
   /infostore/{reportId}/rpt/data.svc/GrandTotals:
     get:
       operationId: getGrandTotals
-      summary: Get grand totals
+      summary: Crystal Reports Get Grand Totals
       description: >-
         Returns the grand total summary fields for the report data,
         including aggregated values across all rows.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Grand totals returned successfully
@@ -777,22 +787,23 @@ paths:
   /infostore/{reportId}/rpt/data.svc/{GroupName}:
     get:
       operationId: getGroupData
-      summary: Get group data
+      summary: Crystal Reports Get Group Data
       description: >-
         Returns data for a specific group within the report. Group names
         correspond to the group conditions defined in the report structure.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - name: GroupName
-          in: path
-          required: true
-          description: Name of the group collection
-          schema:
-            type: string
-            example: Group1_Country
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - name: GroupName
+        in: path
+        required: true
+        description: Name of the group collection
+        schema:
+          type: string
+          example: Group1_Country
+        example: Group1_Country
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Group data returned successfully
@@ -816,29 +827,31 @@ paths:
   /infostore/{reportId}/rpt/data.svc/{GroupName}('{groupPath}'):
     get:
       operationId: getGroupByPath
-      summary: Get specific group by path
+      summary: Crystal Reports Get Specific Group by Path
       description: >-
         Returns data for a specific group entry identified by its
         group path string within the named group collection.
       tags:
-        - OData
+      - OData
       parameters:
-        - $ref: '#/components/parameters/ReportId'
-        - name: GroupName
-          in: path
-          required: true
-          description: Name of the group collection
-          schema:
-            type: string
-            example: Group1_Country
-        - name: groupPath
-          in: path
-          required: true
-          description: Path identifier for the specific group entry
-          schema:
-            type: string
-            example: USA
-        - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ReportId'
+      - name: GroupName
+        in: path
+        required: true
+        description: Name of the group collection
+        schema:
+          type: string
+          example: Group1_Country
+        example: Group1_Country
+      - name: groupPath
+        in: path
+        required: true
+        description: Path identifier for the specific group entry
+        schema:
+          type: string
+          example: USA
+        example: USA
+      - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: Group entry returned successfully
@@ -897,8 +910,8 @@ components:
       schema:
         type: string
         enum:
-          - application/json
-          - application/xml
+        - application/json
+        - application/xml
         default: application/json
         example: application/json
     PreferredViewingLanguage:
@@ -933,15 +946,15 @@ components:
           type: string
           description: Authentication type to use
           enum:
-            - secEnterprise
-            - secLDAP
-            - secWinAD
-            - secSAPR3
+          - secEnterprise
+          - secLDAP
+          - secWinAD
+          - secSAPR3
           example: secEnterprise
       required:
-        - userName
-        - password
-        - auth
+      - userName
+      - password
+      - auth
     LogonResponse:
       type: object
       description: Response containing the logon token after successful authentication
@@ -988,12 +1001,12 @@ components:
           items:
             $ref: '#/components/schemas/InfostoreEntry'
           example:
-            - id: 4201
-              cuid: AaGKDkx9w5RMoGANrfKwmn0
-              name: Report Samples
-              type: Folder
-              description: Sample Crystal Reports
-              uri: /biprws/infostore/4201
+          - id: 4201
+            cuid: AaGKDkx9w5RMoGANrfKwmn0
+            name: Report Samples
+            type: Folder
+            description: Sample Crystal Reports
+            uri: /biprws/infostore/4201
     ReportSummary:
       type: object
       description: Summary information about a Crystal Report
@@ -1115,8 +1128,8 @@ components:
           items:
             type: string
           example:
-            - Customer
-            - Orders
+          - Customer
+          - Orders
     UsedField:
       type: object
       description: A field used in the report
@@ -1145,8 +1158,8 @@ components:
           type: string
           description: Sort direction of the group
           enum:
-            - Ascending
-            - Descending
+          - Ascending
+          - Descending
           example: Ascending
     ReportParameter:
       type: object
@@ -1288,8 +1301,8 @@ components:
           items:
             type: string
           example:
-            - Rows
-            - GrandTotals
+          - Rows
+          - GrandTotals
     ODataRow:
       type: object
       description: >-
@@ -1319,14 +1332,14 @@ components:
           items:
             $ref: '#/components/schemas/ODataRow'
           example:
-            - CustomerName: City Cyclists
-              Country: USA
-              OrderAmount: 1250.50
-              OrderDate: '2023-11-15'
-            - CustomerName: Pathfinders
-              Country: Canada
-              OrderAmount: 875.25
-              OrderDate: '2023-11-16'
+          - CustomerName: City Cyclists
+            Country: USA
+            OrderAmount: 1250.50
+            OrderDate: '2023-11-15'
+          - CustomerName: Pathfinders
+            Country: Canada
+            OrderAmount: 875.25
+            OrderDate: '2023-11-16'
     ODataFieldValue:
       type: object
       description: A single field value from an OData row
@@ -1359,9 +1372,9 @@ components:
           items:
             $ref: '#/components/schemas/GrandTotal'
           example:
-            - SumOfOrderAmount: 548290.75
-              CountOfOrders: 1542
-              AverageOrderAmount: 355.57
+          - SumOfOrderAmount: 548290.75
+            CountOfOrders: 1542
+            AverageOrderAmount: 355.57
     Error:
       type: object
       description: Error response from the API

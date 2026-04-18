@@ -1,0 +1,374 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Crystal Reports Reporting Services"
+  description: "Shared capability for Crystal Reports REST API covering authentication, repository navigation, report metadata, instances, export, and OData data access."
+  tags:
+    - Crystal Reports
+    - Reporting
+    - Business Intelligence
+    - OData
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      CR_USERNAME: CR_USERNAME
+      CR_PASSWORD: CR_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: cr-reporting
+      baseUri: https://{server}:{port}/biprws
+      description: "Crystal Reports RESTful Web Services API."
+      authentication:
+        type: apikey
+        key: X-SAP-LogonToken
+        value: "{{CR_LOGON_TOKEN}}"
+        placement: header
+      resources:
+        - name: authentication
+          path: /logon
+          description: "Authentication and session management."
+          operations:
+            - name: logon
+              method: POST
+              path: /logon/long
+              description: "Authenticate with username and password."
+              body:
+                type: json
+                data:
+                  userName: "{{tools.userName}}"
+                  password: "{{tools.password}}"
+                  auth: "{{tools.auth}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: reports
+          path: /infostore
+          description: "Repository navigation and report access."
+          operations:
+            - name: browse-repository
+              method: GET
+              path: /infostore
+              description: "Browse the BI platform repository."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-folder-children
+              method: GET
+              path: /infostore/{folderId}/children
+              description: "List contents of a folder."
+              inputParameters:
+                - name: folderId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-report-summary
+              method: GET
+              path: /infostore/{reportId}/rpt
+              description: "Get report summary information."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-report-structure
+              method: GET
+              path: /infostore/{reportId}/rpt/structure
+              description: "Get report metadata structure."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-instance
+              method: POST
+              path: /infostore/{reportId}/rpt/instance
+              description: "Create a transient report instance."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: export-report
+              method: GET
+              path: /infostore/{reportId}/rpt/export
+              description: "Export report to PDF, Excel, CSV, Word, or other format."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+                - name: mime_type
+                  in: query
+                  type: string
+                  required: true
+                  description: "Export MIME type."
+              outputRawFormat: binary
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: odata
+          path: /infostore
+          description: "OData data access for report rows and grand totals."
+          operations:
+            - name: get-odata-service
+              method: GET
+              path: /infostore/{reportId}/rpt/data.svc
+              description: "Get OData service document."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-odata-metadata
+              method: GET
+              path: /infostore/{reportId}/rpt/data.svc/$metadata
+              description: "Get EDMX metadata document."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: xml
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-rows
+              method: GET
+              path: /infostore/{reportId}/rpt/data.svc/Rows
+              description: "Get report data rows."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+                - name: $skip
+                  in: query
+                  type: integer
+                  required: false
+                - name: $top
+                  in: query
+                  type: integer
+                  required: false
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: post-row
+              method: POST
+              path: /infostore/{reportId}/rpt/data.svc/Rows
+              description: "Push a row of data to a transient instance."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              body:
+                type: json
+                data:
+                  fields: "{{tools.fields}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-grand-totals
+              method: GET
+              path: /infostore/{reportId}/rpt/data.svc/GrandTotals
+              description: "Get report grand totals."
+              inputParameters:
+                - name: reportId
+                  in: path
+                  type: string
+                  required: true
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: cr-reporting-rest
+      resources:
+        - path: /v1/reports
+          name: reports
+          operations:
+            - method: GET
+              name: browse-repository
+              call: "cr-reporting.browse-repository"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reports/{id}
+          name: report
+          operations:
+            - method: GET
+              name: get-report-summary
+              call: "cr-reporting.get-report-summary"
+              with:
+                reportId: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reports/{id}/export
+          name: export
+          operations:
+            - method: GET
+              name: export-report
+              call: "cr-reporting.export-report"
+              with:
+                reportId: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/reports/{id}/rows
+          name: rows
+          operations:
+            - method: GET
+              name: get-rows
+              call: "cr-reporting.get-rows"
+              with:
+                reportId: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: cr-reporting-mcp
+      transport: http
+      tools:
+        - name: logon
+          description: "Authenticate to Crystal Reports server"
+          hints: {readOnly: false, idempotent: false}
+          call: "cr-reporting.logon"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: browse-repository
+          description: "Browse the BI platform repository"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.browse-repository"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-folder-children
+          description: "List contents of a repository folder"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.list-folder-children"
+          with:
+            folderId: "tools.folderId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-report-summary
+          description: "Get report summary information"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.get-report-summary"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-report-structure
+          description: "Get report metadata structure including datasources, fields, and parameters"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.get-report-structure"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-instance
+          description: "Create a transient report instance for data manipulation"
+          hints: {readOnly: false, idempotent: false}
+          call: "cr-reporting.create-instance"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: export-report
+          description: "Export a report to PDF, Excel, CSV, Word, or other format"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.export-report"
+          with:
+            reportId: "tools.reportId"
+            mime_type: "tools.mime_type"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-rows
+          description: "Get report data rows via OData"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.get-rows"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post-row
+          description: "Push a row of data to a transient report instance"
+          hints: {readOnly: false, idempotent: false}
+          call: "cr-reporting.post-row"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-grand-totals
+          description: "Get report grand totals and summaries"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.get-grand-totals"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-odata-metadata
+          description: "Get EDMX metadata document describing report data model"
+          hints: {readOnly: true, idempotent: true}
+          call: "cr-reporting.get-odata-metadata"
+          with:
+            reportId: "tools.reportId"
+          outputParameters:
+            - type: object
+              mapping: "$."

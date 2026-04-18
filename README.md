@@ -74,6 +74,20 @@ SAP Crystal Reports is a business intelligence application for designing and gen
 
 23 example JSON files in [examples/](examples/).
 
+## Capabilities
+
+Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
+
+### Shared Per-API Definitions
+
+- [Reporting Services](capabilities/shared/reporting.yaml) — 12 operations covering authentication, repository, reports, metadata, instances, export, and OData
+
+### Workflow Capabilities
+
+| Workflow | APIs Combined | Tools | Persona |
+|----------|--------------|-------|---------|
+| [Report Management](capabilities/report-management.yaml) | All reporting services | 11 | Report Developer / BI Analyst |
+
 ## Vocabulary
 
 - [Crystal Reports Vocabulary](vocabulary/crystal-reports-vocabulary.yaml) — 7 resources, 3 APIs, 3 domains, 4 personas
