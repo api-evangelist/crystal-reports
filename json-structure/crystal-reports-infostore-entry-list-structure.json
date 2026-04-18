@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-infostore-entry-list-structure.json",
+  "name": "InfostoreEntryList",
+  "description": "A collection of infostore entries",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "description": "List of infostore objects",
+      "items": {
+        "$ref": "#/components/schemas/InfostoreEntry"
+      },
+      "example": [
+        {
+          "id": 4201,
+          "cuid": "AaGKDkx9w5RMoGANrfKwmn0",
+          "name": "Report Samples",
+          "type": "Folder",
+          "description": "Sample Crystal Reports",
+          "uri": "/biprws/infostore/4201"
+        }
+      ]
+    }
+  }
+}

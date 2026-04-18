@@ -1,0 +1,6 @@
+{
+  "userName": "db_user",
+  "password": "db_pass",
+  "serverName": "dbserver.example.com",
+  "databaseName": "SalesDB"
+}

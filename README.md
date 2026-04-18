@@ -52,6 +52,28 @@ SAP Crystal Reports is a business intelligence application for designing and gen
 | SAP Crystal Reports Server | Server platform for scheduling and distributing reports. |
 | SAP BusinessObjects BI | Enterprise BI platform with Crystal Reports integration. |
 
+## Artifacts
+
+### OpenAPI
+
+- [Crystal Reports REST API](openapi/crystal-reports-rest-api.yaml) — 24 operations, 25 schemas (generated from official SAP PDF documentation)
+
+### JSON Schema
+
+23 standalone JSON Schema files in [json-schema/](json-schema/).
+
+### JSON Structure
+
+23 JSON Structure files in [json-structure/](json-structure/).
+
+### JSON-LD
+
+- [Crystal Reports Context](json-ld/crystal-reports-context.jsonld) — 23 types, 54 properties
+
+### Examples
+
+23 example JSON files in [examples/](examples/).
+
 ## Vocabulary
 
 - [Crystal Reports Vocabulary](vocabulary/crystal-reports-vocabulary.yaml) — 7 resources, 3 APIs, 3 domains, 4 personas

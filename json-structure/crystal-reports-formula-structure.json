@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-formula-structure.json",
+  "name": "Formula",
+  "description": "A formula field defined in the report",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Formula field name",
+      "example": "FullAddress"
+    },
+    "text": {
+      "type": "string",
+      "description": "Formula expression text",
+      "example": "{Customer.Address1} & \", \" & {Customer.City}"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-data-source-structure.json",
+  "name": "DataSource",
+  "description": "A data source connection used by the report",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the data source",
+      "example": "xtreme"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of data source connection",
+      "example": "JDBC (JNDI)"
+    },
+    "tables": {
+      "type": "array",
+      "description": "Tables used from this data source",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "Customer",
+        "Orders"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-o-data-field-value-structure.json",
+  "name": "ODataFieldValue",
+  "description": "A single field value from an OData row",
+  "type": "object",
+  "properties": {
+    "fieldName": {
+      "type": "string",
+      "description": "Name of the field",
+      "example": "CustomerName"
+    },
+    "value": {
+      "type": "string",
+      "description": "Value of the field",
+      "example": "City Cyclists"
+    }
+  }
+}

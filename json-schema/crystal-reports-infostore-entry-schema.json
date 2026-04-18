@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-infostore-entry-schema.json",
+  "title": "InfostoreEntry",
+  "description": "An object in the infostore repository (folder, report, etc.)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique infostore object identifier",
+      "example": 5765
+    },
+    "cuid": {
+      "type": "string",
+      "description": "Cluster unique identifier",
+      "example": "AaGKDkx9w5RMoGANrfKwmn0"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the object",
+      "example": "Sales Report Q4"
+    },
+    "type": {
+      "type": "string",
+      "description": "Object type (e.g., Folder, CrystalReport)",
+      "example": "CrystalReport"
+    },
+    "description": {
+      "type": "string",
+      "description": "Object description",
+      "example": "Quarterly sales report for all regions"
+    },
+    "uri": {
+      "type": "string",
+      "description": "Relative URI to access this object",
+      "example": "/biprws/infostore/5765"
+    }
+  }
+}

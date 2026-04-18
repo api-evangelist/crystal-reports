@@ -1,0 +1,6 @@
+{
+  "name": "RunningTotal_OrderAmount",
+  "field": "Order Amount",
+  "operation": "Sum",
+  "reset_condition": "OnGroupChange"
+}

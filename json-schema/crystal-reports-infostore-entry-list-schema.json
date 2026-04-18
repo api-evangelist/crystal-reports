@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-infostore-entry-list-schema.json",
+  "title": "InfostoreEntryList",
+  "description": "A collection of infostore entries",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "description": "List of infostore objects",
+      "items": {
+        "$ref": "#/components/schemas/InfostoreEntry"
+      },
+      "example": [
+        {
+          "id": 4201,
+          "cuid": "AaGKDkx9w5RMoGANrfKwmn0",
+          "name": "Report Samples",
+          "type": "Folder",
+          "description": "Sample Crystal Reports",
+          "uri": "/biprws/infostore/4201"
+        }
+      ]
+    }
+  }
+}

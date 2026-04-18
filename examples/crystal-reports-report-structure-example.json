@@ -1,0 +1,26 @@
+{
+  "datasources": [
+    "example_value"
+  ],
+  "usedfields": [
+    "example_value"
+  ],
+  "groupconditions": [
+    "example_value"
+  ],
+  "parameters": [
+    "example_value"
+  ],
+  "summary": [
+    "example_value"
+  ],
+  "runningtotals": [
+    "example_value"
+  ],
+  "formulas": [
+    "example_value"
+  ],
+  "subreports": [
+    "example_value"
+  ]
+}

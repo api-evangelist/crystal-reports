@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-o-data-service-document-structure.json",
+  "name": "ODataServiceDocument",
+  "description": "OData service document listing available collections",
+  "type": "object",
+  "properties": {
+    "EntitySets": {
+      "type": "array",
+      "description": "Available entity set collections",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "Rows",
+        "GrandTotals"
+      ]
+    }
+  }
+}

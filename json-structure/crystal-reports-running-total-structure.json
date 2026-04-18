@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-running-total-structure.json",
+  "name": "RunningTotal",
+  "description": "A running total field",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Running total field name",
+      "example": "RunningTotal_OrderAmount"
+    },
+    "field": {
+      "type": "string",
+      "description": "Field being totaled",
+      "example": "Order Amount"
+    },
+    "operation": {
+      "type": "string",
+      "description": "Aggregation operation",
+      "example": "Sum"
+    },
+    "reset_condition": {
+      "type": "string",
+      "description": "Condition that resets the running total",
+      "example": "OnGroupChange"
+    }
+  }
+}

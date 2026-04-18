@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-grand-total-collection-schema.json",
+  "title": "GrandTotalCollection",
+  "description": "Collection of grand total summary entries",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "description": "Array of grand total entries",
+      "items": {
+        "$ref": "#/components/schemas/GrandTotal"
+      },
+      "example": [
+        {
+          "SumOfOrderAmount": 548290.75,
+          "CountOfOrders": 1542,
+          "AverageOrderAmount": 355.57
+        }
+      ]
+    }
+  }
+}

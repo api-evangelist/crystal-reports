@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-subreport-structure.json",
+  "name": "Subreport",
+  "description": "A subreport embedded within the main report",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Subreport name",
+      "example": "OrderDetails"
+    },
+    "uri": {
+      "type": "string",
+      "description": "URI to access the subreport",
+      "example": "/biprws/infostore/5765/rpt/subreport/OrderDetails"
+    }
+  }
+}

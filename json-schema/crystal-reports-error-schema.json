@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-error-schema.json",
+  "title": "Error",
+  "description": "Error response from the API",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "type": "integer",
+      "description": "Numeric error code",
+      "example": 401
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error message",
+      "example": "Authentication token is missing or expired"
+    }
+  }
+}

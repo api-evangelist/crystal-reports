@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-file-format-version-structure.json",
+  "name": "FileFormatVersion",
+  "description": "Crystal Report file format version",
+  "type": "object",
+  "properties": {
+    "major_version": {
+      "type": "int32",
+      "description": "Major version number",
+      "example": 14
+    },
+    "minor_version": {
+      "type": "int32",
+      "description": "Minor version number",
+      "example": 3
+    }
+  }
+}

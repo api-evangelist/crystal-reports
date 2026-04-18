@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-instance-form-schema.json",
+  "title": "InstanceForm",
+  "description": "Form for creating a transient report instance",
+  "type": "object",
+  "properties": {
+    "SuppressData": {
+      "type": "boolean",
+      "description": "Whether to suppress data retrieval during instance creation",
+      "example": false
+    },
+    "ConnectionInfo": {
+      "$ref": "#/components/schemas/ConnectionInfo"
+    }
+  }
+}

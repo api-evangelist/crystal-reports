@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-summary-field-schema.json",
+  "title": "SummaryField",
+  "description": "A summary or aggregate field in the report",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Summary field name",
+      "example": "Sum of Order Amount"
+    },
+    "operation": {
+      "type": "string",
+      "description": "Aggregation operation",
+      "example": "Sum"
+    },
+    "field": {
+      "type": "string",
+      "description": "Source field being summarized",
+      "example": "Order Amount"
+    }
+  }
+}

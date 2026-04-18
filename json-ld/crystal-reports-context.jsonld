@@ -1,0 +1,258 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cr": "https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ConnectionInfo": {
+      "@id": "cr:ConnectionInfo",
+      "@type": "xsd:string"
+    },
+    "DataSource": "cr:DataSource",
+    "Error": "cr:Error",
+    "FileFormatVersion": "cr:FileFormatVersion",
+    "Formula": "cr:Formula",
+    "GrandTotalCollection": "cr:GrandTotalCollection",
+    "GroupCondition": "cr:GroupCondition",
+    "InfostoreEntry": "cr:InfostoreEntry",
+    "InfostoreEntryList": "cr:InfostoreEntryList",
+    "InstanceForm": "cr:InstanceForm",
+    "LogonRequest": "cr:LogonRequest",
+    "LogonResponse": "cr:LogonResponse",
+    "ODataFieldValue": "cr:ODataFieldValue",
+    "ODataRowCollection": "cr:ODataRowCollection",
+    "ODataServiceDocument": "cr:ODataServiceDocument",
+    "ReportInstance": "cr:ReportInstance",
+    "ReportParameter": "cr:ReportParameter",
+    "ReportStructure": "cr:ReportStructure",
+    "ReportSummary": "cr:ReportSummary",
+    "RunningTotal": "cr:RunningTotal",
+    "Subreport": "cr:Subreport",
+    "SummaryField": "cr:SummaryField",
+    "UsedField": "cr:UsedField",
+    "EntitySets": {
+      "@id": "cr:EntitySets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "SuppressData": {
+      "@id": "cr:SuppressData",
+      "@type": "xsd:boolean"
+    },
+    "__count": {
+      "@id": "cr:__count",
+      "@type": "xsd:string"
+    },
+    "__next": {
+      "@id": "cr:__next",
+      "@type": "xsd:string"
+    },
+    "auth": {
+      "@id": "cr:auth",
+      "@type": "xsd:string"
+    },
+    "author": {
+      "@id": "cr:author",
+      "@type": "xsd:string"
+    },
+    "comments": {
+      "@id": "cr:comments",
+      "@type": "xsd:string"
+    },
+    "cuid": {
+      "@id": "cr:cuid",
+      "@type": "xsd:string"
+    },
+    "databaseName": {
+      "@id": "cr:databaseName",
+      "@type": "xsd:string"
+    },
+    "datasources": {
+      "@id": "cr:datasources",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "default_value": {
+      "@id": "cr:default_value",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "cr:description",
+      "@type": "xsd:string"
+    },
+    "direction": {
+      "@id": "cr:direction",
+      "@type": "xsd:string"
+    },
+    "edit_uri": {
+      "@id": "cr:edit_uri",
+      "@type": "xsd:string"
+    },
+    "entries": {
+      "@id": "cr:entries",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "error_code": {
+      "@id": "cr:error_code",
+      "@type": "xsd:integer"
+    },
+    "export_uri": {
+      "@id": "cr:export_uri",
+      "@type": "xsd:string"
+    },
+    "field": {
+      "@id": "cr:field",
+      "@type": "xsd:string"
+    },
+    "fieldName": {
+      "@id": "cr:fieldName",
+      "@type": "xsd:string"
+    },
+    "file_format_version": {
+      "@id": "cr:file_format_version",
+      "@type": "xsd:string"
+    },
+    "formulas": {
+      "@id": "cr:formulas",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "groupconditions": {
+      "@id": "cr:groupconditions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "cr:id",
+      "@type": "xsd:integer"
+    },
+    "keywords": {
+      "@id": "cr:keywords",
+      "@type": "xsd:string"
+    },
+    "last_data_refresh_date": {
+      "@id": "cr:last_data_refresh_date",
+      "@type": "xsd:dateTime"
+    },
+    "logonToken": {
+      "@id": "cr:logonToken",
+      "@type": "xsd:string"
+    },
+    "major_version": {
+      "@id": "cr:major_version",
+      "@type": "xsd:integer"
+    },
+    "message": {
+      "@id": "cr:message",
+      "@type": "xsd:string"
+    },
+    "minor_version": {
+      "@id": "cr:minor_version",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "cr:name",
+      "@type": "xsd:string"
+    },
+    "operation": {
+      "@id": "cr:operation",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "cr:parameters",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "password": {
+      "@id": "cr:password",
+      "@type": "xsd:string"
+    },
+    "prompt": {
+      "@id": "cr:prompt",
+      "@type": "xsd:string"
+    },
+    "report_name": {
+      "@id": "cr:report_name",
+      "@type": "xsd:string"
+    },
+    "report_title": {
+      "@id": "cr:report_title",
+      "@type": "xsd:string"
+    },
+    "required": {
+      "@id": "cr:required",
+      "@type": "xsd:boolean"
+    },
+    "reset_condition": {
+      "@id": "cr:reset_condition",
+      "@type": "xsd:string"
+    },
+    "resource": {
+      "@id": "cr:resource",
+      "@type": "xsd:string"
+    },
+    "runningtotals": {
+      "@id": "cr:runningtotals",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "serverName": {
+      "@id": "cr:serverName",
+      "@type": "xsd:string"
+    },
+    "service_uri": {
+      "@id": "cr:service_uri",
+      "@type": "xsd:string"
+    },
+    "subject": {
+      "@id": "cr:subject",
+      "@type": "xsd:string"
+    },
+    "subreports": {
+      "@id": "cr:subreports",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "summary": {
+      "@id": "cr:summary",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "table": {
+      "@id": "cr:table",
+      "@type": "xsd:string"
+    },
+    "tables": {
+      "@id": "cr:tables",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "cr:text",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "cr:type",
+      "@type": "xsd:string"
+    },
+    "uri": {
+      "@id": "cr:uri",
+      "@type": "xsd:string"
+    },
+    "usedfields": {
+      "@id": "cr:usedfields",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "userName": {
+      "@id": "cr:userName",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "cr:value",
+      "@container": "@set",
+      "@type": "xsd:string"
+    }
+  }
+}

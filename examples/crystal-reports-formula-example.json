@@ -1,0 +1,4 @@
+{
+  "name": "FullAddress",
+  "text": "{Customer.Address1} & \", \" & {Customer.City}"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "StartDate",
+  "type": "Date",
+  "prompt": "Enter the start date",
+  "required": true,
+  "default_value": "2023-01-01"
+}

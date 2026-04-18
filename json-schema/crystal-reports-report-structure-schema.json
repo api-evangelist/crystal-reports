@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-report-structure-schema.json",
+  "title": "ReportStructure",
+  "description": "Full structural metadata of a Crystal Report",
+  "type": "object",
+  "properties": {
+    "datasources": {
+      "type": "array",
+      "description": "Data sources used by the report",
+      "items": {
+        "$ref": "#/components/schemas/DataSource"
+      }
+    },
+    "usedfields": {
+      "type": "array",
+      "description": "Fields used in the report",
+      "items": {
+        "$ref": "#/components/schemas/UsedField"
+      }
+    },
+    "groupconditions": {
+      "type": "array",
+      "description": "Group conditions defined in the report",
+      "items": {
+        "$ref": "#/components/schemas/GroupCondition"
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "description": "Report parameters",
+      "items": {
+        "$ref": "#/components/schemas/ReportParameter"
+      }
+    },
+    "summary": {
+      "type": "array",
+      "description": "Summary fields in the report",
+      "items": {
+        "$ref": "#/components/schemas/SummaryField"
+      }
+    },
+    "runningtotals": {
+      "type": "array",
+      "description": "Running total fields",
+      "items": {
+        "$ref": "#/components/schemas/RunningTotal"
+      }
+    },
+    "formulas": {
+      "type": "array",
+      "description": "Formula fields defined in the report",
+      "items": {
+        "$ref": "#/components/schemas/Formula"
+      }
+    },
+    "subreports": {
+      "type": "array",
+      "description": "Subreports embedded in the report",
+      "items": {
+        "$ref": "#/components/schemas/Subreport"
+      }
+    }
+  }
+}

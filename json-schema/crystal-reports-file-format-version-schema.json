@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-file-format-version-schema.json",
+  "title": "FileFormatVersion",
+  "description": "Crystal Report file format version",
+  "type": "object",
+  "properties": {
+    "major_version": {
+      "type": "integer",
+      "description": "Major version number",
+      "example": 14
+    },
+    "minor_version": {
+      "type": "integer",
+      "description": "Minor version number",
+      "example": 3
+    }
+  }
+}

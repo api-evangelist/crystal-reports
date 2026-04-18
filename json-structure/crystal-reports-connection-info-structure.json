@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-connection-info-structure.json",
+  "name": "ConnectionInfo",
+  "description": "Database connection information for the report instance",
+  "type": "object",
+  "properties": {
+    "userName": {
+      "type": "string",
+      "description": "Database username",
+      "example": "db_user"
+    },
+    "password": {
+      "type": "string",
+      "description": "Database password",
+      "example": "db_pass"
+    },
+    "serverName": {
+      "type": "string",
+      "description": "Database server name or address",
+      "example": "dbserver.example.com"
+    },
+    "databaseName": {
+      "type": "string",
+      "description": "Database name",
+      "example": "SalesDB"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "report_name": "WorldSalesReport.rpt",
+  "report_title": "World Sales Report",
+  "file_format_version": "example_value",
+  "author": "John Smith",
+  "subject": "Global Sales Data",
+  "keywords": "sales, quarterly, revenue",
+  "comments": "Updated for Q4 2023 data",
+  "last_data_refresh_date": "2023-12-15T14:30:00Z",
+  "export_uri": "/biprws/infostore/5765/rpt/export",
+  "service_uri": "/biprws/infostore/5765/rpt/data.svc"
+}

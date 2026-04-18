@@ -1,0 +1,5 @@
+{
+  "name": "Sum of Order Amount",
+  "operation": "Sum",
+  "field": "Order Amount"
+}

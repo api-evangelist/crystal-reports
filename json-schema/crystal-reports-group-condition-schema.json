@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-group-condition-schema.json",
+  "title": "GroupCondition",
+  "description": "A group condition defining how report data is grouped",
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "description": "Field used for grouping",
+      "example": "Country"
+    },
+    "direction": {
+      "type": "string",
+      "description": "Sort direction of the group",
+      "enum": [
+        "Ascending",
+        "Descending"
+      ],
+      "example": "Ascending"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-logon-request-schema.json",
+  "title": "LogonRequest",
+  "description": "Logon credentials for authenticating against the BI Platform",
+  "type": "object",
+  "properties": {
+    "userName": {
+      "type": "string",
+      "description": "Username for authentication",
+      "example": "Administrator"
+    },
+    "password": {
+      "type": "string",
+      "description": "Password for the user account",
+      "example": "P@ssw0rd"
+    },
+    "auth": {
+      "type": "string",
+      "description": "Authentication type to use",
+      "enum": [
+        "secEnterprise",
+        "secLDAP",
+        "secWinAD",
+        "secSAPR3"
+      ],
+      "example": "secEnterprise"
+    }
+  },
+  "required": [
+    "userName",
+    "password",
+    "auth"
+  ]
+}

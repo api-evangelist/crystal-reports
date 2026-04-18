@@ -1,0 +1,8 @@
+{
+  "name": "xtreme",
+  "type": "JDBC (JNDI)",
+  "tables": [
+    "Customer",
+    "Orders"
+  ]
+}

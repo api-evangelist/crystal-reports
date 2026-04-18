@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-schema/crystal-reports-report-instance-schema.json",
+  "title": "ReportInstance",
+  "description": "A transient report instance",
+  "type": "object",
+  "properties": {
+    "report_name": {
+      "type": "string",
+      "description": "Name of the report",
+      "example": "WorldSalesReport.rpt"
+    },
+    "resource": {
+      "type": "string",
+      "description": "URI of the created instance resource",
+      "example": "/biprws/infostore/5765/rpt/instance/abc123"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the instance",
+      "example": "abc123"
+    }
+  }
+}

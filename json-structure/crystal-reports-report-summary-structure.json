@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-report-summary-structure.json",
+  "name": "ReportSummary",
+  "description": "Summary information about a Crystal Report",
+  "type": "object",
+  "properties": {
+    "report_name": {
+      "type": "string",
+      "description": "Internal name of the report",
+      "example": "WorldSalesReport.rpt"
+    },
+    "report_title": {
+      "type": "string",
+      "description": "Display title of the report",
+      "example": "World Sales Report"
+    },
+    "file_format_version": {
+      "$ref": "#/components/schemas/FileFormatVersion"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author of the report",
+      "example": "John Smith"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Subject of the report",
+      "example": "Global Sales Data"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Keywords associated with the report",
+      "example": "sales, quarterly, revenue"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments about the report",
+      "example": "Updated for Q4 2023 data"
+    },
+    "last_data_refresh_date": {
+      "type": "datetime",
+      "description": "Last time the report data was refreshed",
+      "example": "2023-12-15T14:30:00Z"
+    },
+    "export_uri": {
+      "type": "string",
+      "description": "URI for exporting the report",
+      "example": "/biprws/infostore/5765/rpt/export"
+    },
+    "service_uri": {
+      "type": "string",
+      "description": "URI for the OData data service",
+      "example": "/biprws/infostore/5765/rpt/data.svc"
+    },
+    "edit_uri": {
+      "type": "string",
+      "description": "URI for editing or managing the report",
+      "example": "/biprws/infostore/5765/rpt/instance"
+    }
+  }
+}

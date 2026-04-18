@@ -1,0 +1,18 @@
+{
+  "__count": "1542",
+  "__next": "/biprws/infostore/5765/rpt/data.svc/Rows?$skiptoken=100",
+  "value": [
+    {
+      "CustomerName": "City Cyclists",
+      "Country": "USA",
+      "OrderAmount": 1250.5,
+      "OrderDate": "2023-11-15"
+    },
+    {
+      "CustomerName": "Pathfinders",
+      "Country": "Canada",
+      "OrderAmount": 875.25,
+      "OrderDate": "2023-11-16"
+    }
+  ]
+}

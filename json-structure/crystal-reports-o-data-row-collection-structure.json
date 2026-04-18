@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/json-structure/crystal-reports-o-data-row-collection-structure.json",
+  "name": "ODataRowCollection",
+  "description": "A collection of OData report data rows",
+  "type": "object",
+  "properties": {
+    "__count": {
+      "type": "string",
+      "description": "Total count of rows (when $inlinecount=allpages is used)",
+      "example": "1542"
+    },
+    "__next": {
+      "type": "string",
+      "description": "URI for the next page of results",
+      "example": "/biprws/infostore/5765/rpt/data.svc/Rows?$skiptoken=100"
+    },
+    "value": {
+      "type": "array",
+      "description": "Array of data rows",
+      "items": {
+        "$ref": "#/components/schemas/ODataRow"
+      },
+      "example": [
+        {
+          "CustomerName": "City Cyclists",
+          "Country": "USA",
+          "OrderAmount": 1250.5,
+          "OrderDate": "2023-11-15"
+        },
+        {
+          "CustomerName": "Pathfinders",
+          "Country": "Canada",
+          "OrderAmount": 875.25,
+          "OrderDate": "2023-11-16"
+        }
+      ]
+    }
+  }
+}
