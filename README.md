@@ -1,77 +1,67 @@
 # Crystal Reports (crystal-reports)
-APIs and resources for Crystal Reports, a business intelligence application for designing and generating reports from various data sources
+SAP Crystal Reports is a business intelligence application for designing and generating formatted reports from various data sources including SQL databases, spreadsheets, and XML.
 
-**URL:** [Visit APIs.json URL](https://www.sap.com/products/technology-platform/crystal-reports.html)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml)
+
+**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
 ## Tags:
 
- - Business Intelligence, Reporting, Data Analytics, Enterprise Software, SAP, Crystal Reports
+ - Business Intelligence, Data Visualization, Reporting, SAP
 
 ## Timestamps
 
-- **Created:** 2024 
-- **Modified:** 2024 
+- **Created:** 2024-01-01
+- **Modified:** 2026-04-17
 
 ## APIs
 
-### Crystal Reports REST API
-RESTful API for managing and generating Crystal Reports programmatically
+3 APIs: Crystal Reports REST API, Crystal Reports SDK, Crystal Reports Server REST API.
 
-**Human URL:** [https://help.sap.com/docs/SAP_CRYSTAL_REPORTS](https://help.sap.com/docs/SAP_CRYSTAL_REPORTS)
+## Features
 
+| Name | Description |
+|------|-------------|
+| Report Generation | Generate formatted reports from databases, spreadsheets, and XML. |
+| Report Viewing | Embed report viewers in web and desktop applications. |
+| Report Scheduling | Schedule automated report generation and delivery. |
+| Parameter Prompts | Pass dynamic parameters to filter report content. |
+| Export Formats | Export to PDF, Excel, Word, CSV, XML, and other formats. |
+| Sub-Reports | Embed linked sub-reports for drill-down capabilities. |
+| Cross-Tab Reports | Generate pivot-table style cross-tabulation reports. |
+| Charting | Create charts and graphs within reports. |
+| Data Source Connectivity | Connect to SQL Server, Oracle, SAP HANA, ODBC, JDBC. |
+| Report Server Management | Manage server instances, folders, users, and security. |
 
-#### Tags:
+## Use Cases
 
- - Reports, Business Intelligence, Data Visualization, Enterprise
+| Name | Description |
+|------|-------------|
+| Financial Reporting | Financial statements, balance sheets, and P&L reports. |
+| Operational Dashboards | Operational reports for manufacturing and logistics. |
+| Compliance Reports | Regulatory compliance reports for auditing. |
+| Customer Invoicing | Formatted invoices and statements from billing data. |
+| HR Analytics | Employee reports, headcount, and compensation summaries. |
+| Embedded Reporting | Embed Crystal Reports viewer in custom applications. |
 
-#### Properties
+## Solutions
 
-- [Documentation](https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api)
-- [OpenAPI](https://api.sap.com/crystal/openapi.json)
-- [Authentication](https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication)
+| Name | Description |
+|------|-------------|
+| SAP Crystal Reports | Desktop report designer for creating templates. |
+| SAP Crystal Reports Server | Server platform for scheduling and distributing reports. |
+| SAP BusinessObjects BI | Enterprise BI platform with Crystal Reports integration. |
 
-### Crystal Reports SDK
-Software Development Kit for embedding Crystal Reports into applications
+## Vocabulary
 
-**Human URL:** [https://help.sap.com/docs/CRYSTAL_REPORTS_SDK](https://help.sap.com/docs/CRYSTAL_REPORTS_SDK)
+- [Crystal Reports Vocabulary](vocabulary/crystal-reports-vocabulary.yaml) — 7 resources, 3 APIs, 3 domains, 4 personas
 
+## Rules
 
-#### Tags:
-
- - SDK, .NET, Java, Embedding
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/CRYSTAL_REPORTS_SDK)
-- [Download](https://www.sap.com/products/technology-platform/crystal-reports/downloads.html)
-- [Code Samples](https://github.com/SAP-samples/crystal-reports)
-
-### Crystal Reports Server REST API
-API for Crystal Reports Server administration and report management
-
-**Human URL:** [https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM)
-
-
-#### Tags:
-
- - Server, Administration, Report Management, BI Platform
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/rest-api)
-- [API Reference](https://help.sap.com/doc/rest-api-reference)
-
-## Common Properties
-
-- [Portal](https://api.sap.com)
-- [Blog](https://blogs.sap.com/tags/73554900100800000134/)
-- [Community](https://community.sap.com/topics/crystal-reports)
-- [Support](https://support.sap.com/crystal-reports)
-- [Terms of Service](https://www.sap.com/about/legal/terms-of-use.html)
-- [Privacy Policy](https://www.sap.com/about/legal/privacy.html)
+- [Crystal Reports Spectral Rules](rules/crystal-reports-spectral-rules.yml) — 16 rules
 
 ## Maintainers
 
-**FN:** SAP
+**FN:** Kin Lane
 
-**Email:** info@sap.com
+**Email:** kin@apievangelist.com

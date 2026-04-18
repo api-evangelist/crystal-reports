@@ -1,0 +1,91 @@
+vocabulary: 1.0.0
+info:
+  provider: Crystal Reports
+  description: Vocabulary for SAP Crystal Reports APIs covering report generation,
+    viewing, scheduling, and server management.
+  created: '2026-04-17'
+  modified: '2026-04-17'
+operational:
+  apis:
+  - name: Crystal Reports REST API
+    namespace: cr-rest
+    status: active
+  - name: Crystal Reports SDK
+    namespace: cr-sdk
+    status: active
+  - name: Crystal Reports Server REST API
+    namespace: cr-server
+    status: active
+  resources:
+  - name: reports
+    description: Report definitions and templates.
+    actions:
+    - list
+    - get
+    - create
+    - export
+    - schedule
+  - name: instances
+    description: Report instances (generated outputs).
+    actions:
+    - list
+    - get
+    - create
+    - delete
+  - name: parameters
+    description: Report parameter prompts and values.
+    actions:
+    - get
+    - set
+  - name: data-sources
+    description: Report data source connections.
+    actions:
+    - get
+    - update
+  - name: folders
+    description: Server folder hierarchy.
+    actions:
+    - list
+    - get
+    - create
+    - delete
+  - name: users
+    description: Server user accounts and groups.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: schedules
+    description: Report scheduling configurations.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+capability:
+  personas:
+  - id: report-developer
+    name: Report Developer
+  - id: bi-analyst
+    name: BI Analyst
+  - id: server-admin
+    name: Server Administrator
+  - id: application-developer
+    name: Application Developer
+  domains:
+  - name: report-design
+    resources:
+    - reports
+    - parameters
+    - data-sources
+  - name: report-delivery
+    resources:
+    - instances
+    - schedules
+  - name: server-management
+    resources:
+    - folders
+    - users
