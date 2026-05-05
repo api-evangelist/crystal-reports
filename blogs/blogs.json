@@ -1,0 +1,13 @@
+{
+  "repo": "crystal-reports",
+  "feeds": [
+    {
+      "source": "https://blogs.sap.com/tags/73554900100800000134/",
+      "feed_url": "https://community.sap.com/khhcw49343/rss/Community?interaction.style=forum",
+      "saved": 10,
+      "title": "New board topics in SAP Community"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:26:34Z"
+}
