@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,110 +9,90 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Crystal Reports
 providerId: crystal-reports
-publisherName: Crystal Reports
-serviceCategory: API
+publisherName: SAP SE
+serviceCategory: Business Intelligence
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Business Intelligence
-  - Crystal Reports
-  - Data Analytics
-  - Enterprise Software
   - Reporting
   - SAP
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Crystal Reports API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps for SAP Crystal Reports: per-named-user desktop license plus server
+  / BI Platform license. Pricing is partner-quoted; APIs are entitlements of the underlying license rather
+  than separately metered.'
+sources:
+  - https://www.sap.com/products/technology-platform/crystal-reports.html
+notes: Pricing is not public; reconcile per-seat and per-CPU costs from the active SAP partner contract.
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: Use the SAP BI Platform CMS to inventory deployed Crystal Reports designers and report
+      authors; reconcile against the SAP entitlement portal.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Tag report authors and folders by department to attribute Crystal Reports designer and
+      server seat costs.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Reclaim dormant designer seats; prefer concurrent-user licensing over named-user when
+      utilization is low; consolidate to BI Platform shared services.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
+    description: BI / data-platform org owns the SAP contract; finance reviews annual maintenance and
+      true-up at SAP renewal.
 domains:
   - name: Understand Usage and Cost
     capabilities:
-      - Data Ingestion
       - Allocation
       - Reporting and Analytics
-      - Anomaly Management
   - name: Quantify Business Value
     capabilities:
-      - Planning and Estimating
       - Forecasting
       - Budgeting
-      - Benchmarking
-      - Unit Economics
   - name: Optimize Usage and Cost
     capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
       - Licensing and SaaS
   - name: Manage the FinOps Practice
     capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
       - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Perpetual License + Maintenance
+  billingFrequency: Annual
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+  chargeFrequency: One-Time + Recurring
 focusColumns:
-  ServiceName: Crystal Reports
-  ServiceCategory: Developer Tools / API
-  ProviderName: Crystal Reports
-  PublisherName: Crystal Reports
-  InvoiceIssuerName: Crystal Reports
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceName: SAP Crystal Reports
+  ServiceCategory: Business Intelligence
+  ProviderName: SAP
+  PublisherName: SAP SE
+  InvoiceIssuerName: SAP SE
+  PricingCategory: Perpetual License
+  PricingUnit: seat
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: designer_seats
+    description: Crystal Reports designer / authoring seats
+    unit: seat-year
+    aggregation: max
+    dimensions:
+      - department
+  - name: server_seats
+    description: BI Platform / Crystal Server named or concurrent user seats
+    unit: seat-year
+    aggregation: max
+    dimensions:
+      - department
+      - environment
+  - name: maintenance_fees
+    description: Annual SAP support / maintenance entitlement
+    unit: year
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
+      - product
 apis:
   - name: Crystal Reports REST API
     baseURL: https://api.sap.com/crystal/v1
@@ -141,11 +122,11 @@ apis:
     serviceName: Crystal Reports Server REST API
     serviceCategory: API
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
+  - name: Cost per Designer Seat
+    metric: billed_cost / designer_seats
     target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
+  - name: Cost per Active Report Author
+    metric: billed_cost / active_authors
     target: TBD
 maintainers:
   - FN: Kin Lane
