@@ -59,7 +59,7 @@ apis:
   properties:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/rest-api
-  - type: API Reference
+  - type: APIReference
     url: https://help.sap.com/doc/rest-api-reference
   aid: crystal-reports:server-rest-api
 common:
