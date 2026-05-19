@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP Crystal Reports RESTful Web Services API — Metadata
+  description: 'SAP Crystal Reports RESTful Web Services API — Metadata. 1 operations. Lead operation: Crystal Reports Get
+    Report Structure and Metadata. Self-contained Naftiko capability covering one Crystal Reports business surface.'
+  tags:
+  - Crystal Reports
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CRYSTAL_REPORTS_API_KEY: CRYSTAL_REPORTS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-metadata
+    baseUri: http://{host}:{port}/biprws
+    description: SAP Crystal Reports RESTful Web Services API — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: infostore-reportId-rpt-structure
+      path: /infostore/{reportId}/rpt/structure
+      operations:
+      - name: getreportstructure
+        method: GET
+        description: Crystal Reports Get Report Structure and Metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-SAP-LogonToken
+      value: '{{env.CRYSTAL_REPORTS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: rest-metadata-rest
+    port: 8080
+    description: REST adapter for SAP Crystal Reports RESTful Web Services API — Metadata. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/infostore/{reportid}/rpt/structure
+      name: infostore-reportid-rpt-structure
+      description: REST surface for infostore-reportId-rpt-structure.
+      operations:
+      - method: GET
+        name: getreportstructure
+        description: Crystal Reports Get Report Structure and Metadata
+        call: rest-metadata.getreportstructure
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP Crystal Reports RESTful Web Services API — Metadata. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: crystal-reports-get-report-structure
+      description: Crystal Reports Get Report Structure and Metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-metadata.getreportstructure
+      outputParameters:
+      - type: object
+        mapping: $.
