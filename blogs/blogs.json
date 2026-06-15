@@ -2,11 +2,8 @@
   "repo": "crystal-reports",
   "feeds": [
     {
-      "source": "https://community.sap.com/khhcw49343/rss/Community?interaction.style=forum",
-      "feed_url": "https://community.sap.com/khhcw49343/rss/Community?interaction.style=forum",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
+      "source": "https://blogs.sap.com/tags/73554900100800000134/",
+      "error": "HTTPError"
     },
     {
       "source": "https://api.sap.com",
@@ -17,5 +14,5 @@
     }
   ],
   "post_count": 50,
-  "fetched": "2026-06-01T23:35:02Z"
+  "fetched": "2026-06-14T20:42:17Z"
 }
