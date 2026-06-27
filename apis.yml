@@ -25,19 +25,19 @@ apis:
     url: https://api.sap.com/crystal/openapi.json
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-authentication.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-export.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-instances.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-metadata.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-odata.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-reports.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-repository.yaml
   contact:
   - FN: SAP Support

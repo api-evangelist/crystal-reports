@@ -3,16 +3,11 @@
   "feeds": [
     {
       "source": "https://blogs.sap.com/tags/73554900100800000134/",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://api.sap.com",
-      "feed_url": "https://api.sap.com",
-      "title": "",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "error": "301 redirect to generic community.sap.com homepage; tag-specific blog page no longer resolves"
     }
   ],
-  "post_count": 50,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:35:21Z",
+  "post_count": 50
 }
