@@ -77,6 +77,12 @@ apis:
     url: https://help.sap.com/doc/rest-api-reference
   aid: crystal-reports:server-rest-api
 common:
+- type: VulnerabilityDisclosure
+  url: security/crystal-reports-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/crystal-reports-domain-security.yml
+- type: Authentication
+  url: authentication/crystal-reports-authentication.yml
 - type: Portal
   url: https://api.sap.com
 - type: Blog

@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/crystal-reports-rest-api.yaml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: sapLogonToken
+  type: apiKey
+  in: header
+  parameter: X-SAP-LogonToken
+  description: SAP logon token obtained from the /logon/long endpoint. The token value must
+    be enclosed in double quotes when sent in the header.
+  sources:
+  - openapi/crystal-reports-rest-api.yaml
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic authentication as an alternative to token-based auth
+  sources:
+  - openapi/crystal-reports-rest-api.yaml
