@@ -2,12 +2,13 @@
   "repo": "crystal-reports",
   "feeds": [
     {
-      "source": "https://blogs.sap.com/tags/73554900100800000134/",
-      "feed_url": "",
+      "source": "https://api.sap.com",
+      "feed_url": "https://api.sap.com",
+      "title": "",
       "saved": 0,
-      "error": "301 redirect to generic community.sap.com homepage; tag-specific blog page no longer resolves"
+      "method": "none"
     }
   ],
-  "fetched": "2026-06-27T12:35:21Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "post_count": 50
 }
