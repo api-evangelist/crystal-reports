@@ -77,6 +77,8 @@ apis:
     url: https://help.sap.com/doc/rest-api-reference
   aid: crystal-reports:server-rest-api
 common:
+- type: AgenticAccess
+  url: agentic-access/crystal-reports-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/crystal-reports-vulnerability-disclosure.yml
 - type: DomainSecurity

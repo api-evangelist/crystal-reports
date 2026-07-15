@@ -1,0 +1,234 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/crystal-reports-rest-api.yaml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 20
+  by_action_class:
+    connected: 17
+    acting: 3
+  by_consequence:
+    read: 17
+    write: 3
+  human_in_the_loop_required: 0
+operations:
+- path: /logon/long
+  method: get
+  operationId: getLogonForm
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /logon/long
+  method: post
+  operationId: logon
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /infostore
+  method: get
+  operationId: browseInfostore
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/Root%20Folder/children
+  method: get
+  operationId: listRootFolderContents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{folderId}/children
+  method: get
+  operationId: listFolderContents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt
+  method: get
+  operationId: getReportSummary
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/structure
+  method: get
+  operationId: getReportStructure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/instance
+  method: get
+  operationId: getInstanceForm
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/instance
+  method: post
+  operationId: createReportInstance
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /infostore/{reportId}/rpt/export
+  method: get
+  operationId: exportReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc
+  method: get
+  operationId: getODataServiceDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/$metadata
+  method: get
+  operationId: getODataMetadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/Rows
+  method: get
+  operationId: getReportDataRows
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/Rows
+  method: post
+  operationId: pushDataRow
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /infostore/{reportId}/rpt/data.svc/Rows({index})
+  method: get
+  operationId: getReportDataRowByIndex
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/Rows({index})/{fieldName}
+  method: get
+  operationId: getRowFieldValue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/Rows({index})/{fieldName}/$value
+  method: get
+  operationId: getRowFieldRawValue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/GrandTotals
+  method: get
+  operationId: getGrandTotals
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/{GroupName}
+  method: get
+  operationId: getGroupData
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /infostore/{reportId}/rpt/data.svc/{GroupName}('{groupPath}')
+  method: get
+  operationId: getGroupByPath
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
