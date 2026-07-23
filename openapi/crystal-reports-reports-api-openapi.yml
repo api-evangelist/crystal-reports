@@ -1,0 +1,179 @@
+openapi: 3.0.3
+info:
+  title: SAP Crystal RESTful Web Services Authentication Reports API
+  description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
+  version: 4.3.0
+  contact:
+    name: SAP
+    url: https://www.sap.com
+  license:
+    name: Proprietary
+    url: https://www.sap.com/about/legal/copyright.html
+  x-generated-from: documentation
+  x-source-url: https://help.sap.com/doc/sapcrystalreportsrestfulwebservices/4.3/en-US/crrest_api_42SP2.pdf
+servers:
+- url: http://{host}:{port}/biprws
+  description: SAP BusinessObjects BI Platform REST API server
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SAP BusinessObjects server
+    port:
+      default: '6405'
+      description: Port number for the RESTful web services
+security:
+- sapLogonToken: []
+tags:
+- name: Reports
+  description: Report summary and URI information
+paths:
+  /infostore/{reportId}/rpt:
+    get:
+      operationId: getReportSummary
+      summary: Crystal Reports Get Report Summary Info
+      description: Returns summary information about a Crystal Report including name, title, author, format version, and URIs for export, service, and edit operations.
+      tags:
+      - Reports
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
+      responses:
+        '200':
+          description: Report summary returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportSummary'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ReportSummary'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 200
+components:
+  parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
+    Accept:
+      name: Accept
+      in: header
+      required: false
+      description: Desired response format
+      schema:
+        type: string
+        enum:
+        - application/json
+        - application/xml
+        default: application/json
+        example: application/json
+    PreferredViewingLanguage:
+      name: X-SAP-PVL
+      in: header
+      required: false
+      description: Preferred viewing language for localized content
+      schema:
+        type: string
+        example: en
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    FileFormatVersion:
+      type: object
+      description: Crystal Report file format version
+      properties:
+        major_version:
+          type: integer
+          description: Major version number
+          example: 14
+        minor_version:
+          type: integer
+          description: Minor version number
+          example: 3
+    ReportSummary:
+      type: object
+      description: Summary information about a Crystal Report
+      properties:
+        report_name:
+          type: string
+          description: Internal name of the report
+          example: WorldSalesReport.rpt
+        report_title:
+          type: string
+          description: Display title of the report
+          example: World Sales Report
+        file_format_version:
+          $ref: '#/components/schemas/FileFormatVersion'
+        author:
+          type: string
+          description: Author of the report
+          example: John Smith
+        subject:
+          type: string
+          description: Subject of the report
+          example: Global Sales Data
+        keywords:
+          type: string
+          description: Keywords associated with the report
+          example: sales, quarterly, revenue
+        comments:
+          type: string
+          description: Comments about the report
+          example: Updated for Q4 2023 data
+        last_data_refresh_date:
+          type: string
+          format: date-time
+          description: Last time the report data was refreshed
+          example: '2023-12-15T14:30:00Z'
+        export_uri:
+          type: string
+          description: URI for exporting the report
+          example: /biprws/infostore/5765/rpt/export
+        service_uri:
+          type: string
+          description: URI for the OData data service
+          example: /biprws/infostore/5765/rpt/data.svc
+        edit_uri:
+          type: string
+          description: URI for editing or managing the report
+          example: /biprws/infostore/5765/rpt/instance
+    Error:
+      type: object
+      description: Error response from the API
+      properties:
+        error_code:
+          type: integer
+          description: Numeric error code
+          example: 401
+        message:
+          type: string
+          description: Human-readable error message
+          example: Authentication token is missing or expired
+  securitySchemes:
+    sapLogonToken:
+      type: apiKey
+      name: X-SAP-LogonToken
+      in: header
+      description: SAP logon token obtained from the /logon/long endpoint. The token value must be enclosed in double quotes when sent in the header.
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication as an alternative to token-based auth

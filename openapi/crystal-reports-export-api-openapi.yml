@@ -1,0 +1,168 @@
+openapi: 3.0.3
+info:
+  title: SAP Crystal Reports RESTful Web Services Authentication Export API
+  description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
+  version: 4.3.0
+  contact:
+    name: SAP
+    url: https://www.sap.com
+  license:
+    name: Proprietary
+    url: https://www.sap.com/about/legal/copyright.html
+  x-generated-from: documentation
+  x-source-url: https://help.sap.com/doc/sapcrystalreportsrestfulwebservices/4.3/en-US/crrest_api_42SP2.pdf
+servers:
+- url: http://{host}:{port}/biprws
+  description: SAP BusinessObjects BI Platform REST API server
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SAP BusinessObjects server
+    port:
+      default: '6405'
+      description: Port number for the RESTful web services
+security:
+- sapLogonToken: []
+tags:
+- name: Export
+  description: Report export to various formats
+paths:
+  /infostore/{reportId}/rpt/export:
+    get:
+      operationId: exportReport
+      summary: Crystal Reports Export Report to Specified Format
+      description: Exports a Crystal Report to the specified MIME type format. Supports PDF, CSV, Excel, Word, RTF, TTX, XML, plain text, and modern Excel (XLSX) formats.
+      tags:
+      - Export
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - name: mime_type
+        in: query
+        required: true
+        description: The MIME type of the desired export format
+        schema:
+          type: string
+          enum:
+          - application/PDF
+          - text/csv
+          - application/vnd.ms-excel
+          - application/msword
+          - application/rtf
+          - text/ttx
+          - application/xml
+          - text/plain
+          - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          example: application/PDF
+        example: application/PDF
+      - name: startPageNumber
+        in: query
+        required: false
+        description: Starting page number for the export (PDF only)
+        schema:
+          type: integer
+          minimum: 1
+          example: 1
+        example: 1
+      - name: endPageNumber
+        in: query
+        required: false
+        description: Ending page number for the export (PDF only)
+        schema:
+          type: integer
+          minimum: 1
+          example: 10
+        example: 10
+      - name: isCreateBookmarksFromGroupTree
+        in: query
+        required: false
+        description: Whether to create bookmarks from the group tree (PDF only)
+        schema:
+          type: boolean
+          example: true
+        example: true
+      responses:
+        '200':
+          description: Report exported successfully
+          content:
+            application/PDF:
+              schema:
+                type: string
+                format: binary
+            text/csv:
+              schema:
+                type: string
+            application/vnd.ms-excel:
+              schema:
+                type: string
+                format: binary
+            application/msword:
+              schema:
+                type: string
+                format: binary
+            application/rtf:
+              schema:
+                type: string
+            text/ttx:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+                format: binary
+            text/plain:
+              schema:
+                type: string
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 1000
+components:
+  schemas:
+    Error:
+      type: object
+      description: Error response from the API
+      properties:
+        error_code:
+          type: integer
+          description: Numeric error code
+          example: 401
+        message:
+          type: string
+          description: Human-readable error message
+          example: Authentication token is missing or expired
+  parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    sapLogonToken:
+      type: apiKey
+      name: X-SAP-LogonToken
+      in: header
+      description: SAP logon token obtained from the /logon/long endpoint. The token value must be enclosed in double quotes when sent in the header.
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication as an alternative to token-based auth

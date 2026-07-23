@@ -1,0 +1,570 @@
+openapi: 3.0.3
+info:
+  title: SAP Crystal Reports RESTful Web Services Authentication OData API
+  description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
+  version: 4.3.0
+  contact:
+    name: SAP
+    url: https://www.sap.com
+  license:
+    name: Proprietary
+    url: https://www.sap.com/about/legal/copyright.html
+  x-generated-from: documentation
+  x-source-url: https://help.sap.com/doc/sapcrystalreportsrestfulwebservices/4.3/en-US/crrest_api_42SP2.pdf
+servers:
+- url: http://{host}:{port}/biprws
+  description: SAP BusinessObjects BI Platform REST API server
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SAP BusinessObjects server
+    port:
+      default: '6405'
+      description: Port number for the RESTful web services
+security:
+- sapLogonToken: []
+tags:
+- name: OData
+  description: OData data service for report row and summary data
+paths:
+  /infostore/{reportId}/rpt/data.svc:
+    get:
+      operationId: getODataServiceDocument
+      summary: Crystal Reports Get OData Service Document
+      description: Returns the OData service document listing available collections (Rows and GrandTotals) for the specified report.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: OData service document returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataServiceDocument'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataServiceDocument'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 200
+  /infostore/{reportId}/rpt/data.svc/$metadata:
+    get:
+      operationId: getODataMetadata
+      summary: Crystal Reports Get EDMX Metadata Document
+      description: Returns the OData EDMX metadata document describing the entity types, properties, and associations for the report data service.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      responses:
+        '200':
+          description: EDMX metadata document returned successfully
+          content:
+            application/xml:
+              schema:
+                type: string
+                example: <?xml version="1.0" encoding="utf-8"?> <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"> </edmx:Edmx>
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 200
+  /infostore/{reportId}/rpt/data.svc/Rows:
+    get:
+      operationId: getReportDataRows
+      summary: Crystal Reports Get Report Data Rows
+      description: Returns report data rows via OData. Supports paging with $skip and $skiptoken, row counting with $inlinecount and $count, field selection with $select, and parameter filtering.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      - name: $skip
+        in: query
+        required: false
+        description: Number of rows to skip
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - name: $skiptoken
+        in: query
+        required: false
+        description: Token for server-driven paging
+        schema:
+          type: string
+          example: '100'
+        example: '100'
+      - name: $inlinecount
+        in: query
+        required: false
+        description: Include total count in response
+        schema:
+          type: string
+          enum:
+          - allpages
+          example: allpages
+        example: allpages
+      - name: $count
+        in: query
+        required: false
+        description: Return only the count of rows
+        schema:
+          type: boolean
+          example: true
+        example: true
+      - name: $select
+        in: query
+        required: false
+        description: Comma-separated list of fields to include
+        schema:
+          type: string
+          example: CustomerName,OrderAmount
+        example: CustomerName,OrderAmount
+      responses:
+        '200':
+          description: Report data rows returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataRowCollection'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataRowCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 500
+    post:
+      operationId: pushDataRow
+      summary: Crystal Reports Push a Row of Data to Transient Instance
+      description: Pushes a row of data to a transient report instance for data-driven report generation.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ODataRow'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ODataRow'
+      responses:
+        '201':
+          description: Data row pushed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataRow'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataRow'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 300
+  /infostore/{reportId}/rpt/data.svc/Rows({index}):
+    get:
+      operationId: getReportDataRowByIndex
+      summary: Crystal Reports Get Specific Row by Index
+      description: Returns a single report data row identified by its zero-based index within the Rows collection.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - name: index
+        in: path
+        required: true
+        description: Zero-based index of the row
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: Data row returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataRow'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataRow'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Row not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 200
+  /infostore/{reportId}/rpt/data.svc/Rows({index})/{fieldName}:
+    get:
+      operationId: getRowFieldValue
+      summary: Crystal Reports Get Specific Field from Row
+      description: Returns the value of a specific field from a report data row, wrapped in OData format.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - name: index
+        in: path
+        required: true
+        description: Zero-based index of the row
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - name: fieldName
+        in: path
+        required: true
+        description: Name of the field to retrieve
+        schema:
+          type: string
+          example: CustomerName
+        example: CustomerName
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: Field value returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataFieldValue'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataFieldValue'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Row or field not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 200
+  /infostore/{reportId}/rpt/data.svc/Rows({index})/{fieldName}/$value:
+    get:
+      operationId: getRowFieldRawValue
+      summary: Crystal Reports Get Raw Field Value
+      description: Returns the raw, unwrapped value of a specific field from a report data row as plain text.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - name: index
+        in: path
+        required: true
+        description: Zero-based index of the row
+        schema:
+          type: integer
+          minimum: 0
+          example: 0
+      - name: fieldName
+        in: path
+        required: true
+        description: Name of the field to retrieve
+        schema:
+          type: string
+          example: OrderAmount
+        example: OrderAmount
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: Raw field value returned successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '1250.50'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Row or field not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 150
+  /infostore/{reportId}/rpt/data.svc/GrandTotals:
+    get:
+      operationId: getGrandTotals
+      summary: Crystal Reports Get Grand Totals
+      description: Returns the grand total summary fields for the report data, including aggregated values across all rows.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: Grand totals returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrandTotalCollection'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GrandTotalCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 300
+  /infostore/{reportId}/rpt/data.svc/{GroupName}:
+    get:
+      operationId: getGroupData
+      summary: Crystal Reports Get Group Data
+      description: Returns data for a specific group within the report. Group names correspond to the group conditions defined in the report structure.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - name: GroupName
+        in: path
+        required: true
+        description: Name of the group collection
+        schema:
+          type: string
+          example: Group1_Country
+        example: Group1_Country
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: Group data returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataRowCollection'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataRowCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Group not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 300
+  /infostore/{reportId}/rpt/data.svc/{GroupName}('{groupPath}'):
+    get:
+      operationId: getGroupByPath
+      summary: Crystal Reports Get Specific Group by Path
+      description: Returns data for a specific group entry identified by its group path string within the named group collection.
+      tags:
+      - OData
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - name: GroupName
+        in: path
+        required: true
+        description: Name of the group collection
+        schema:
+          type: string
+          example: Group1_Country
+        example: Group1_Country
+      - name: groupPath
+        in: path
+        required: true
+        description: Path identifier for the specific group entry
+        schema:
+          type: string
+          example: USA
+        example: USA
+      - $ref: '#/components/parameters/Accept'
+      responses:
+        '200':
+          description: Group entry returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataRow'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ODataRow'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Group entry not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 200
+components:
+  schemas:
+    ODataFieldValue:
+      type: object
+      description: A single field value from an OData row
+      properties:
+        fieldName:
+          type: string
+          description: Name of the field
+          example: CustomerName
+        value:
+          type: string
+          description: Value of the field
+          example: City Cyclists
+    GrandTotal:
+      type: object
+      description: Grand total summary data. Properties are dynamic and correspond to the summary fields defined in the report.
+      additionalProperties: true
+      example:
+        SumOfOrderAmount: 548290.75
+        CountOfOrders: 1542
+        AverageOrderAmount: 355.57
+    ODataRow:
+      type: object
+      description: A single row of report data. Properties are dynamic and correspond to the fields defined in the report.
+      additionalProperties: true
+      example:
+        CustomerName: City Cyclists
+        Country: USA
+        OrderAmount: 1250.5
+        OrderDate: '2023-11-15'
+    ODataRowCollection:
+      type: object
+      description: A collection of OData report data rows
+      properties:
+        __count:
+          type: string
+          description: Total count of rows (when $inlinecount=allpages is used)
+          example: '1542'
+        __next:
+          type: string
+          description: URI for the next page of results
+          example: /biprws/infostore/5765/rpt/data.svc/Rows?$skiptoken=100
+        value:
+          type: array
+          description: Array of data rows
+          items:
+            $ref: '#/components/schemas/ODataRow'
+          example:
+          - CustomerName: City Cyclists
+            Country: USA
+            OrderAmount: 1250.5
+            OrderDate: '2023-11-15'
+          - CustomerName: Pathfinders
+            Country: Canada
+            OrderAmount: 875.25
+            OrderDate: '2023-11-16'
+    ODataServiceDocument:
+      type: object
+      description: OData service document listing available collections
+      properties:
+        EntitySets:
+          type: array
+          description: Available entity set collections
+          items:
+            type: string
+          example:
+          - Rows
+          - GrandTotals
+    GrandTotalCollection:
+      type: object
+      description: Collection of grand total summary entries
+      properties:
+        value:
+          type: array
+          description: Array of grand total entries
+          items:
+            $ref: '#/components/schemas/GrandTotal'
+          example:
+          - SumOfOrderAmount: 548290.75
+            CountOfOrders: 1542
+            AverageOrderAmount: 355.57
+    Error:
+      type: object
+      description: Error response from the API
+      properties:
+        error_code:
+          type: integer
+          description: Numeric error code
+          example: 401
+        message:
+          type: string
+          description: Human-readable error message
+          example: Authentication token is missing or expired
+  parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
+    Accept:
+      name: Accept
+      in: header
+      required: false
+      description: Desired response format
+      schema:
+        type: string
+        enum:
+        - application/json
+        - application/xml
+        default: application/json
+        example: application/json
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    sapLogonToken:
+      type: apiKey
+      name: X-SAP-LogonToken
+      in: header
+      description: SAP logon token obtained from the /logon/long endpoint. The token value must be enclosed in double quotes when sent in the header.
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication as an alternative to token-based auth

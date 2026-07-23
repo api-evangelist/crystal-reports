@@ -1,0 +1,299 @@
+openapi: 3.0.3
+info:
+  title: SAP Crystal Reports RESTful Web Services Authentication Metadata API
+  description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
+  version: 4.3.0
+  contact:
+    name: SAP
+    url: https://www.sap.com
+  license:
+    name: Proprietary
+    url: https://www.sap.com/about/legal/copyright.html
+  x-generated-from: documentation
+  x-source-url: https://help.sap.com/doc/sapcrystalreportsrestfulwebservices/4.3/en-US/crrest_api_42SP2.pdf
+servers:
+- url: http://{host}:{port}/biprws
+  description: SAP BusinessObjects BI Platform REST API server
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SAP BusinessObjects server
+    port:
+      default: '6405'
+      description: Port number for the RESTful web services
+security:
+- sapLogonToken: []
+tags:
+- name: Metadata
+  description: Report structure and metadata
+paths:
+  /infostore/{reportId}/rpt/structure:
+    get:
+      operationId: getReportStructure
+      summary: Crystal Reports Get Report Structure and Metadata
+      description: Returns the full structural metadata of a Crystal Report including datasources, used fields, group conditions, parameters, summary fields, running totals, formulas, and subreports.
+      tags:
+      - Metadata
+      parameters:
+      - $ref: '#/components/parameters/ReportId'
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/PreferredViewingLanguage'
+      responses:
+        '200':
+          description: Report structure returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportStructure'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ReportStructure'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Report not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 300
+components:
+  schemas:
+    ReportStructure:
+      type: object
+      description: Full structural metadata of a Crystal Report
+      properties:
+        datasources:
+          type: array
+          description: Data sources used by the report
+          items:
+            $ref: '#/components/schemas/DataSource'
+        usedfields:
+          type: array
+          description: Fields used in the report
+          items:
+            $ref: '#/components/schemas/UsedField'
+        groupconditions:
+          type: array
+          description: Group conditions defined in the report
+          items:
+            $ref: '#/components/schemas/GroupCondition'
+        parameters:
+          type: array
+          description: Report parameters
+          items:
+            $ref: '#/components/schemas/ReportParameter'
+        summary:
+          type: array
+          description: Summary fields in the report
+          items:
+            $ref: '#/components/schemas/SummaryField'
+        runningtotals:
+          type: array
+          description: Running total fields
+          items:
+            $ref: '#/components/schemas/RunningTotal'
+        formulas:
+          type: array
+          description: Formula fields defined in the report
+          items:
+            $ref: '#/components/schemas/Formula'
+        subreports:
+          type: array
+          description: Subreports embedded in the report
+          items:
+            $ref: '#/components/schemas/Subreport'
+    GroupCondition:
+      type: object
+      description: A group condition defining how report data is grouped
+      properties:
+        field:
+          type: string
+          description: Field used for grouping
+          example: Country
+        direction:
+          type: string
+          description: Sort direction of the group
+          enum:
+          - Ascending
+          - Descending
+          example: Ascending
+    Subreport:
+      type: object
+      description: A subreport embedded within the main report
+      properties:
+        name:
+          type: string
+          description: Subreport name
+          example: OrderDetails
+        uri:
+          type: string
+          description: URI to access the subreport
+          example: /biprws/infostore/5765/rpt/subreport/OrderDetails
+    DataSource:
+      type: object
+      description: A data source connection used by the report
+      properties:
+        name:
+          type: string
+          description: Name of the data source
+          example: xtreme
+        type:
+          type: string
+          description: Type of data source connection
+          example: JDBC (JNDI)
+        tables:
+          type: array
+          description: Tables used from this data source
+          items:
+            type: string
+          example:
+          - Customer
+          - Orders
+    Error:
+      type: object
+      description: Error response from the API
+      properties:
+        error_code:
+          type: integer
+          description: Numeric error code
+          example: 401
+        message:
+          type: string
+          description: Human-readable error message
+          example: Authentication token is missing or expired
+    SummaryField:
+      type: object
+      description: A summary or aggregate field in the report
+      properties:
+        name:
+          type: string
+          description: Summary field name
+          example: Sum of Order Amount
+        operation:
+          type: string
+          description: Aggregation operation
+          example: Sum
+        field:
+          type: string
+          description: Source field being summarized
+          example: Order Amount
+    UsedField:
+      type: object
+      description: A field used in the report
+      properties:
+        name:
+          type: string
+          description: Field name
+          example: Customer Name
+        table:
+          type: string
+          description: Table the field belongs to
+          example: Customer
+        type:
+          type: string
+          description: Data type of the field
+          example: String
+    ReportParameter:
+      type: object
+      description: A parameter that can be set when running the report
+      properties:
+        name:
+          type: string
+          description: Parameter name
+          example: StartDate
+        type:
+          type: string
+          description: Data type of the parameter
+          example: Date
+        prompt:
+          type: string
+          description: Prompt text shown to the user
+          example: Enter the start date
+        required:
+          type: boolean
+          description: Whether the parameter is required
+          example: true
+        default_value:
+          type: string
+          description: Default value for the parameter
+          example: '2023-01-01'
+    RunningTotal:
+      type: object
+      description: A running total field
+      properties:
+        name:
+          type: string
+          description: Running total field name
+          example: RunningTotal_OrderAmount
+        field:
+          type: string
+          description: Field being totaled
+          example: Order Amount
+        operation:
+          type: string
+          description: Aggregation operation
+          example: Sum
+        reset_condition:
+          type: string
+          description: Condition that resets the running total
+          example: OnGroupChange
+    Formula:
+      type: object
+      description: A formula field defined in the report
+      properties:
+        name:
+          type: string
+          description: Formula field name
+          example: FullAddress
+        text:
+          type: string
+          description: Formula expression text
+          example: '{Customer.Address1} & ", " & {Customer.City}'
+  parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
+    Accept:
+      name: Accept
+      in: header
+      required: false
+      description: Desired response format
+      schema:
+        type: string
+        enum:
+        - application/json
+        - application/xml
+        default: application/json
+        example: application/json
+    PreferredViewingLanguage:
+      name: X-SAP-PVL
+      in: header
+      required: false
+      description: Preferred viewing language for localized content
+      schema:
+        type: string
+        example: en
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    sapLogonToken:
+      type: apiKey
+      name: X-SAP-LogonToken
+      in: header
+      description: SAP logon token obtained from the /logon/long endpoint. The token value must be enclosed in double quotes when sent in the header.
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authentication as an alternative to token-based auth
