@@ -3,47 +3,24 @@ name: Crystal Reports
 description: APIs and resources for Crystal Reports, a business intelligence application for designing and generating reports
   from various data sources.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/crystal-reports.png
 url: https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-05-19'
 apis:
-- name: Crystal Reports REST API
-  description: RESTful API for managing and generating Crystal Reports programmatically.
-  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
-  baseURL: https://api.sap.com/crystal/v1
-  tags:
-  - Business Intelligence
-  - Data Visualization
-  - Enterprise
-  - Reports
-  properties:
-  - type: Documentation
-    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
-  - type: OpenAPI
-    url: https://api.sap.com/crystal/openapi.json
-  - type: Authentication
-    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
-  contact:
-  - FN: SAP Support
-    email: support@sap.com
-    url: https://support.sap.com
-  aid: crystal-reports:rest-api
 - name: Crystal Reports SDK
   description: Software Development Kit for embedding Crystal Reports into applications.
   humanURL: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
@@ -76,6 +53,202 @@ apis:
   - type: APIReference
     url: https://help.sap.com/doc/rest-api-reference
   aid: crystal-reports:server-rest-api
+- aid: crystal-reports:crystal-reports-authentication-api
+  name: Crystal Reports Authentication API
+  description: Logon and session management
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
+- aid: crystal-reports:crystal-reports-export-api
+  name: Crystal Reports Export API
+  description: Report export to various formats
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - Export
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-export-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
+- aid: crystal-reports:crystal-reports-instances-api
+  name: Crystal Reports Instances API
+  description: Transient report instance management
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - Instances
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-instances-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
+- aid: crystal-reports:crystal-reports-metadata-api
+  name: Crystal Reports Metadata API
+  description: Report structure and metadata
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
+- aid: crystal-reports:crystal-reports-odata-api
+  name: Crystal Reports OData API
+  description: OData data service for report row and summary data
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - OData
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-odata-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
+- aid: crystal-reports:crystal-reports-reports-api
+  name: Crystal Reports Reports API
+  description: Report summary and URI information
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-reports-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
+- aid: crystal-reports:crystal-reports-repository-api
+  name: Crystal Reports Repository API
+  description: Infostore repository navigation and folder browsing
+  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
+  baseURL: https://api.sap.com/crystal/v1
+  tags:
+  - Repository
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-repository-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+  - type: X-NaftikoCapability
+    url: capabilities/rest-authentication.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-export.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-odata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-reports.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-repository.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/crystal-reports-agentic-access.yml
