@@ -1,0 +1,26 @@
+{
+  "provider": "crystal-reports",
+  "sources": [
+    "crystal-reports-authentication-api-openapi.yml",
+    "crystal-reports-export-api-openapi.yml",
+    "crystal-reports-instances-api-openapi.yml",
+    "crystal-reports-metadata-api-openapi.yml",
+    "crystal-reports-odata-api-openapi.yml",
+    "crystal-reports-reports-api-openapi.yml",
+    "crystal-reports-repository-api-openapi.yml"
+  ],
+  "outputs": [
+    "crystal-reports-authentication-api-openapi.yml",
+    "crystal-reports-export-api-openapi.yml",
+    "crystal-reports-instances-api-openapi.yml",
+    "crystal-reports-metadata-api-openapi.yml",
+    "crystal-reports-odata-api-openapi.yml",
+    "crystal-reports-reports-api-openapi.yml",
+    "crystal-reports-repository-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
