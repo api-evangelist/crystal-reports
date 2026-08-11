@@ -67,20 +67,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 - aid: crystal-reports:crystal-reports-export-api
   name: Crystal Reports Export API
   description: Report export to various formats
@@ -95,20 +81,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 - aid: crystal-reports:crystal-reports-instances-api
   name: Crystal Reports Instances API
   description: Transient report instance management
@@ -123,20 +95,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 - aid: crystal-reports:crystal-reports-metadata-api
   name: Crystal Reports Metadata API
   description: Report structure and metadata
@@ -151,20 +109,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 - aid: crystal-reports:crystal-reports-odata-api
   name: Crystal Reports OData API
   description: OData data service for report row and summary data
@@ -179,20 +123,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 - aid: crystal-reports:crystal-reports-reports-api
   name: Crystal Reports Reports API
   description: Report summary and URI information
@@ -207,20 +137,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 - aid: crystal-reports:crystal-reports-repository-api
   name: Crystal Reports Repository API
   description: Infostore repository navigation and folder browsing
@@ -235,20 +151,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-  - type: X-NaftikoCapability
-    url: capabilities/rest-authentication.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-export.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-metadata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-odata.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-reports.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-repository.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/crystal-reports-agentic-access.yml
