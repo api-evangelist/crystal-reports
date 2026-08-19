@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Crystal Reports RESTful Web Services Authentication Export API",
+    "version": "4.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-SAP-LogonToken",
+      "value": "{{X-SAP-LogonToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crystal Reports Export Report to Specified Format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/export",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "mime_type",
+                "value": "application/PDF",
+                "type": "query",
+                "description": "The MIME type of the desired export format"
+              },
+              {
+                "name": "startPageNumber",
+                "value": "1",
+                "type": "query",
+                "description": "Starting page number for the export (PDF only)"
+              },
+              {
+                "name": "endPageNumber",
+                "value": "10",
+                "type": "query",
+                "description": "Ending page number for the export (PDF only)"
+              },
+              {
+                "name": "isCreateBookmarksFromGroupTree",
+                "value": "true",
+                "type": "query",
+                "description": "Whether to create bookmarks from the group tree (PDF only)"
+              }
+            ]
+          },
+          "docs": "Exports a Crystal Report to the specified MIME type format. Supports PDF, CSV, Excel, Word, RTF, TTX, XML, plain text, and modern Excel (XLSX) formats."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

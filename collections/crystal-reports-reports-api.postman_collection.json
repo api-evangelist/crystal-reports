@@ -1,0 +1,361 @@
+{
+  "item": [
+    {
+      "id": "ebb2b33b-9f51-4657-8219-47330c6aadb9",
+      "name": "Reports",
+      "description": {
+        "content": "Report summary and URI information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84026bdf-7bd3-43df-a0bf-074f38c36769",
+          "name": "Crystal Reports Get Report Summary Info",
+          "request": {
+            "name": "Crystal Reports Get Report Summary Info",
+            "description": {
+              "content": "Returns summary information about a Crystal Report including name, title, author, format version, and URIs for export, service, and edit operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "infostore",
+                ":reportId",
+                "rpt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reportId",
+                  "description": "(Required) Infostore object ID of the Crystal Report"
+                },
+                {
+                  "description": "Hostname of the SAP BusinessObjects server",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number for the RESTful web services",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Preferred viewing language for localized content",
+                "key": "X-SAP-PVL",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aaea7cf5-0191-42be-b812-ef8ab6c71e9d",
+              "name": "Report summary returned successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "infostore",
+                    ":reportId",
+                    "rpt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Infostore object ID of the Crystal Report"
+                    },
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Preferred viewing language for localized content",
+                    "key": "X-SAP-PVL",
+                    "value": "en"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report_name\": \"WorldSalesReport.rpt\",\n  \"report_title\": \"World Sales Report\",\n  \"file_format_version\": {\n    \"major_version\": 14,\n    \"minor_version\": 3\n  },\n  \"author\": \"John Smith\",\n  \"subject\": \"Global Sales Data\",\n  \"keywords\": \"sales, quarterly, revenue\",\n  \"comments\": \"Updated for Q4 2023 data\",\n  \"last_data_refresh_date\": \"2023-12-15T14:30:00Z\",\n  \"export_uri\": \"/biprws/infostore/5765/rpt/export\",\n  \"service_uri\": \"/biprws/infostore/5765/rpt/data.svc\",\n  \"edit_uri\": \"/biprws/infostore/5765/rpt/instance\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0cefbb5-e239-4904-a98c-c7ce7e792b7d",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "infostore",
+                    ":reportId",
+                    "rpt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Infostore object ID of the Crystal Report"
+                    },
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Preferred viewing language for localized content",
+                    "key": "X-SAP-PVL",
+                    "value": "en"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": 401,\n  \"message\": \"Authentication token is missing or expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a01a6edf-0892-4255-b556-4b5012a971a2",
+              "name": "Report not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "infostore",
+                    ":reportId",
+                    "rpt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Infostore object ID of the Crystal Report"
+                    },
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Preferred viewing language for localized content",
+                    "key": "X-SAP-PVL",
+                    "value": "en"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": 401,\n  \"message\": \"Authentication token is missing or expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the SAP BusinessObjects server",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Port number for the RESTful web services",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "6405",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "http://{{host}}:{{port}}/biprws",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-SAP-LogonToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "55f4a9da-822f-42aa-998d-e280991bf0b1",
+    "name": "SAP Crystal RESTful Web Services Authentication Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.\n\nContact Support:\n Name: SAP",
+      "type": "text/plain"
+    }
+  }
+}

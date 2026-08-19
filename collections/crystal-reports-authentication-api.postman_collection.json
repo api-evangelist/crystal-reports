@@ -1,0 +1,389 @@
+{
+  "item": [
+    {
+      "id": "6efd1ac2-cea8-460c-b1e4-195c5a825b42",
+      "name": "Authentication",
+      "description": {
+        "content": "Logon and session management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa03718b-f47c-4970-b4a7-d5b9c94806f8",
+          "name": "Crystal Reports Get Logon Form Template",
+          "request": {
+            "name": "Crystal Reports Get Logon Form Template",
+            "description": {
+              "content": "Returns a JSON or XML template for the logon request body, showing the required fields for authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "logon",
+                "long"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SAP BusinessObjects server",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number for the RESTful web services",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4cf4f610-cc80-4fc7-8972-d52f18a75eb6",
+              "name": "Logon form template returned successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logon",
+                    "long"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userName\": \"Administrator\",\n  \"password\": \"P@ssw0rd\",\n  \"auth\": \"secEnterprise\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61d71b72-5afd-4177-9305-846099a62164",
+          "name": "Crystal Reports Authenticate with Username and Password",
+          "request": {
+            "name": "Crystal Reports Authenticate with Username and Password",
+            "description": {
+              "content": "Authenticates a user against the SAP BusinessObjects BI Platform and returns an X-SAP-LogonToken header for subsequent requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "logon",
+                "long"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SAP BusinessObjects server",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number for the RESTful web services",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"auth\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1e0b448-57e9-447d-8e29-c0ee4748a30c",
+              "name": "Authentication successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logon",
+                    "long"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"Administrator\",\n  \"password\": \"P@ssw0rd\",\n  \"auth\": \"secEnterprise\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Session logon token enclosed in quotes",
+                  "key": "X-SAP-LogonToken",
+                  "value": "\"COMMANDCOM-LCM:6400@{3&2=5697,U3&p=40623.9596541551,Y7&4F&68&z=_3P05,UP&66&UF=02twEaVJw0H1xh3KHPg3S7x.mhc0RWgGLQo1jW.aQbs5Q&42&0F=Ax3kVubd7nkS0DmUxkxGr5J\""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"logonToken\": \"COMMANDCOM-LCM:6400@{3&2=5697,U3&p=40623.9596541551,Y7&4F&68&z=_3P05,UP&66&UF=02twEaVJw0H1xh3KHPg3S7x.mhc0RWgGLQo1jW.aQbs5Q&42&0F=Ax3kVubd7nkS0DmUxkxGr5J\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2967ef19-1f7d-42a2-9671-a775edcb7958",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logon",
+                    "long"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Desired response format",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"Administrator\",\n  \"password\": \"P@ssw0rd\",\n  \"auth\": \"secEnterprise\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": 401,\n  \"message\": \"Authentication token is missing or expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the SAP BusinessObjects server",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Port number for the RESTful web services",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "6405",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "http://{{host}}:{{port}}/biprws",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-SAP-LogonToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cc523977-f0c2-4368-a3a5-3d08ff4c1658",
+    "name": "SAP Crystal Reports RESTful Web Services Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.\n\nContact Support:\n Name: SAP",
+      "type": "text/plain"
+    }
+  }
+}

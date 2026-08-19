@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Crystal Reports RESTful Web Services Authentication API",
+    "version": "4.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-SAP-LogonToken",
+      "value": "{{X-SAP-LogonToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crystal Reports Get Logon Form Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/logon/long",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns a JSON or XML template for the logon request body, showing the required fields for authentication."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Authenticate with Username and Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/biprws/logon/long",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates a user against the SAP BusinessObjects BI Platform and returns an X-SAP-LogonToken header for subsequent requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

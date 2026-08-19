@@ -1,0 +1,352 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Crystal Reports RESTful Web Services Authentication OData API",
+    "version": "4.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-SAP-LogonToken",
+      "value": "{{X-SAP-LogonToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crystal Reports Get OData Service Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ]
+          },
+          "docs": "Returns the OData service document listing available collections (Rows and GrandTotals) for the specified report."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get EDMX Metadata Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/$metadata",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ]
+          },
+          "docs": "Returns the OData EDMX metadata document describing the entity types, properties, and associations for the report data service."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Report Data Rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/Rows",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip"
+              },
+              {
+                "name": "$skiptoken",
+                "value": "100",
+                "type": "query",
+                "description": "Token for server-driven paging"
+              },
+              {
+                "name": "$inlinecount",
+                "value": "allpages",
+                "type": "query",
+                "description": "Include total count in response"
+              },
+              {
+                "name": "$count",
+                "value": "true",
+                "type": "query",
+                "description": "Return only the count of rows"
+              },
+              {
+                "name": "$select",
+                "value": "CustomerName,OrderAmount",
+                "type": "query",
+                "description": "Comma-separated list of fields to include"
+              }
+            ]
+          },
+          "docs": "Returns report data rows via OData. Supports paging with $skip and $skiptoken, row counting with $inlinecount and $count, field selection with $select, and parameter filtering."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Push a Row of Data to Transient Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/Rows",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pushes a row of data to a transient report instance for data-driven report generation."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Specific Row by Index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/Rows(:index)",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Zero-based index of the row"
+              }
+            ]
+          },
+          "docs": "Returns a single report data row identified by its zero-based index within the Rows collection."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Specific Field from Row",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/Rows(:index)/:fieldName",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Zero-based index of the row"
+              },
+              {
+                "name": "fieldName",
+                "value": "CustomerName",
+                "type": "path",
+                "description": "Name of the field to retrieve"
+              }
+            ]
+          },
+          "docs": "Returns the value of a specific field from a report data row, wrapped in OData format."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Raw Field Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/Rows(:index)/:fieldName/$value",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "index",
+                "value": "",
+                "type": "path",
+                "description": "Zero-based index of the row"
+              },
+              {
+                "name": "fieldName",
+                "value": "OrderAmount",
+                "type": "path",
+                "description": "Name of the field to retrieve"
+              }
+            ]
+          },
+          "docs": "Returns the raw, unwrapped value of a specific field from a report data row as plain text."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Grand Totals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/GrandTotals",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ]
+          },
+          "docs": "Returns the grand total summary fields for the report data, including aggregated values across all rows."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Group Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/:GroupName",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "GroupName",
+                "value": "Group1_Country",
+                "type": "path",
+                "description": "Name of the group collection"
+              }
+            ]
+          },
+          "docs": "Returns data for a specific group within the report. Group names correspond to the group conditions defined in the report structure."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Get Specific Group by Path",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/data.svc/:GroupName(':groupPath')",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              },
+              {
+                "name": "GroupName",
+                "value": "Group1_Country",
+                "type": "path",
+                "description": "Name of the group collection"
+              },
+              {
+                "name": "groupPath",
+                "value": "USA",
+                "type": "path",
+                "description": "Path identifier for the specific group entry"
+              }
+            ]
+          },
+          "docs": "Returns data for a specific group entry identified by its group path string within the named group collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

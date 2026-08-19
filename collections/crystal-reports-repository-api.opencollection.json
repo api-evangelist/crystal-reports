@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Crystal Reports RESTful Web Services Authentication Repository API",
+    "version": "4.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-SAP-LogonToken",
+      "value": "{{X-SAP-LogonToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Repository",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crystal Reports Browse the Infostore",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "X-SAP-PVL",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Browse the top-level infostore repository to discover available folders and objects."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports List Root Folder Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/Root%20Folder/children",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "X-SAP-PVL",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the children of the Root Folder in the infostore repository."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports List Folder Contents by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:folderId/children",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "X-SAP-PVL",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the folder"
+              }
+            ]
+          },
+          "docs": "Returns the children of a specific folder identified by its infostore ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

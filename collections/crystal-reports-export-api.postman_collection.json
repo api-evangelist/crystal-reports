@@ -1,0 +1,399 @@
+{
+  "item": [
+    {
+      "id": "d4c2fb25-2902-4c72-8669-9f138582727e",
+      "name": "Export",
+      "description": {
+        "content": "Report export to various formats",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7873d33f-0e08-4d78-ae30-e593362482d5",
+          "name": "Crystal Reports Export Report to Specified Format",
+          "request": {
+            "name": "Crystal Reports Export Report to Specified Format",
+            "description": {
+              "content": "Exports a Crystal Report to the specified MIME type format. Supports PDF, CSV, Excel, Word, RTF, TTX, XML, plain text, and modern Excel (XLSX) formats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "infostore",
+                ":reportId",
+                "rpt",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mime_type",
+                  "value": "<string>",
+                  "description": "(Required) The MIME type of the desired export format"
+                },
+                {
+                  "disabled": false,
+                  "key": "startPageNumber",
+                  "value": "<integer>",
+                  "description": "Starting page number for the export (PDF only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endPageNumber",
+                  "value": "<integer>",
+                  "description": "Ending page number for the export (PDF only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "isCreateBookmarksFromGroupTree",
+                  "value": "<boolean>",
+                  "description": "Whether to create bookmarks from the group tree (PDF only)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "reportId",
+                  "description": "(Required) Infostore object ID of the Crystal Report"
+                },
+                {
+                  "description": "Hostname of the SAP BusinessObjects server",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number for the RESTful web services",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/PDF"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a52cc84a-a9ca-43d9-986b-c77204078619",
+              "name": "Report exported successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "infostore",
+                    ":reportId",
+                    "rpt",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mime_type",
+                      "value": "application/PDF"
+                    },
+                    {
+                      "key": "startPageNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "endPageNumber",
+                      "value": "10"
+                    },
+                    {
+                      "key": "isCreateBookmarksFromGroupTree",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Infostore object ID of the Crystal Report"
+                    },
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/PDF"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "ae1b7b8c-4b4f-45ff-a638-c919ec91e0e4",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "infostore",
+                    ":reportId",
+                    "rpt",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mime_type",
+                      "value": "application/PDF"
+                    },
+                    {
+                      "key": "startPageNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "endPageNumber",
+                      "value": "10"
+                    },
+                    {
+                      "key": "isCreateBookmarksFromGroupTree",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Infostore object ID of the Crystal Report"
+                    },
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": 401,\n  \"message\": \"Authentication token is missing or expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cb0569b-0415-44cc-bb61-75479d18c91c",
+              "name": "Report not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "infostore",
+                    ":reportId",
+                    "rpt",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mime_type",
+                      "value": "application/PDF"
+                    },
+                    {
+                      "key": "startPageNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "endPageNumber",
+                      "value": "10"
+                    },
+                    {
+                      "key": "isCreateBookmarksFromGroupTree",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "reportId",
+                      "description": "(Required) Infostore object ID of the Crystal Report"
+                    },
+                    {
+                      "description": "Hostname of the SAP BusinessObjects server",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number for the RESTful web services",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-SAP-LogonToken",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": 401,\n  \"message\": \"Authentication token is missing or expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the SAP BusinessObjects server",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Port number for the RESTful web services",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "6405",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "http://{{host}}:{{port}}/biprws",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-SAP-LogonToken"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da95f427-d7cf-4d3e-928b-05fb6182ee8b",
+    "name": "SAP Crystal Reports RESTful Web Services Authentication Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.\n\nContact Support:\n Name: SAP",
+      "type": "text/plain"
+    }
+  }
+}

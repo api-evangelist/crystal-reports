@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Crystal Reports RESTful Web Services Authentication Metadata API",
+    "version": "4.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-SAP-LogonToken",
+      "value": "{{X-SAP-LogonToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crystal Reports Get Report Structure and Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/structure",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "X-SAP-PVL",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ]
+          },
+          "docs": "Returns the full structural metadata of a Crystal Report including datasources, used fields, group conditions, parameters, summary fields, running totals, formulas, and subreports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

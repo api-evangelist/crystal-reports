@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Crystal Reports RESTful Web Services Authentication Instances API",
+    "version": "4.3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-SAP-LogonToken",
+      "value": "{{X-SAP-LogonToken}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Instances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Crystal Reports Get Instance Creation Form",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/instance",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ]
+          },
+          "docs": "Returns a form template showing the fields needed to create a transient report instance, including SuppressData and ConnectionInfo options."
+        },
+        {
+          "info": {
+            "name": "Crystal Reports Create Transient Report Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/biprws/infostore/:reportId/rpt/instance",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Infostore object ID of the Crystal Report"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a transient report instance by submitting the instance creation form with optional SuppressData and ConnectionInfo settings. Returns a resource URI for the created instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
