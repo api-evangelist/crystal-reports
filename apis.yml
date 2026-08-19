@@ -35,7 +35,7 @@ apis:
     url: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
   - type: Download
     url: https://www.sap.com/products/technology-platform/crystal-reports/downloads.html
-  - type: Code Samples
+  - type: CodeExamples
     url: https://github.com/SAP-samples/crystal-reports
   aid: crystal-reports:sdk
 - name: Crystal Reports Server REST API
@@ -226,4 +226,4 @@ tags:
 - Enterprise Software
 - Reporting
 - SAP
-specificationVersion: '0.19'
+specificationVersion: '0.23'
