@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SAP Crystal Reports RESTful Web Services Authentication API
   description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
@@ -92,27 +92,20 @@ paths:
       x-microcks-operation:
         delay: 200
 components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: false
+      description: Desired response format
+      schema:
+        type: string
+        enum:
+        - application/json
+        - application/xml
+        default: application/json
+        example: application/json
   schemas:
-    Error:
-      type: object
-      description: Error response from the API
-      properties:
-        error_code:
-          type: integer
-          description: Numeric error code
-          example: 401
-        message:
-          type: string
-          description: Human-readable error message
-          example: Authentication token is missing or expired
-    LogonResponse:
-      type: object
-      description: Response containing the logon token after successful authentication
-      properties:
-        logonToken:
-          type: string
-          description: Session token for subsequent API calls (include in X-SAP-LogonToken header with quotes)
-          example: COMMANDCOM-LCM:6400@{3&2=5697,U3&p=40623.9596541551,Y7&4F&68&z=_3P05,UP&66&UF=02twEaVJw0H1xh3KHPg3S7x.mhc0RWgGLQo1jW.aQbs5Q&42&0F=Ax3kVubd7nkS0DmUxkxGr5J
     LogonRequest:
       type: object
       description: Logon credentials for authenticating against the BI Platform
@@ -138,19 +131,26 @@ components:
       - userName
       - password
       - auth
-  parameters:
-    Accept:
-      name: Accept
-      in: header
-      required: false
-      description: Desired response format
-      schema:
-        type: string
-        enum:
-        - application/json
-        - application/xml
-        default: application/json
-        example: application/json
+    Error:
+      type: object
+      description: Error response from the API
+      properties:
+        error_code:
+          type: integer
+          description: Numeric error code
+          example: 401
+        message:
+          type: string
+          description: Human-readable error message
+          example: Authentication token is missing or expired
+    LogonResponse:
+      type: object
+      description: Response containing the logon token after successful authentication
+      properties:
+        logonToken:
+          type: string
+          description: Session token for subsequent API calls (include in X-SAP-LogonToken header with quotes)
+          example: COMMANDCOM-LCM:6400@{3&2=5697,U3&p=40623.9596541551,Y7&4F&68&z=_3P05,UP&66&UF=02twEaVJw0H1xh3KHPg3S7x.mhc0RWgGLQo1jW.aQbs5Q&42&0F=Ax3kVubd7nkS0DmUxkxGr5J
   securitySchemes:
     sapLogonToken:
       type: apiKey

@@ -21,6 +21,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "crystal-reports-authentication-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "crystal-reports-export-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "crystal-reports-instances-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "crystal-reports-metadata-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "crystal-reports-odata-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "crystal-reports-reports-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "crystal-reports-repository-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

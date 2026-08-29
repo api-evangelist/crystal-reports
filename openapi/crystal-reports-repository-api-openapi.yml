@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SAP Crystal Reports RESTful Web Services Authentication Repository API
   description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
@@ -107,30 +107,36 @@ paths:
       x-microcks-operation:
         delay: 150
 components:
-  responses:
-    Unauthorized:
-      description: Authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: false
+      description: Desired response format
+      schema:
+        type: string
+        enum:
+        - application/json
+        - application/xml
+        default: application/json
+        example: application/json
+    PreferredViewingLanguage:
+      name: X-SAP-PVL
+      in: header
+      required: false
+      description: Preferred viewing language for localized content
+      schema:
+        type: string
+        example: en
+    FolderId:
+      name: folderId
+      in: path
+      required: true
+      description: Infostore object ID of the folder
+      schema:
+        type: integer
+        example: 4201
   schemas:
-    InfostoreEntryList:
-      type: object
-      description: A collection of infostore entries
-      properties:
-        entries:
-          type: array
-          description: List of infostore objects
-          items:
-            $ref: '#/components/schemas/InfostoreEntry'
-          example:
-          - id: 4201
-            cuid: AaGKDkx9w5RMoGANrfKwmn0
-            name: Report Samples
-            type: Folder
-            description: Sample Crystal Reports
-            uri: /biprws/infostore/4201
     InfostoreEntry:
       type: object
       description: An object in the infostore repository (folder, report, etc.)
@@ -171,35 +177,29 @@ components:
           type: string
           description: Human-readable error message
           example: Authentication token is missing or expired
-  parameters:
-    FolderId:
-      name: folderId
-      in: path
-      required: true
-      description: Infostore object ID of the folder
-      schema:
-        type: integer
-        example: 4201
-    Accept:
-      name: Accept
-      in: header
-      required: false
-      description: Desired response format
-      schema:
-        type: string
-        enum:
-        - application/json
-        - application/xml
-        default: application/json
-        example: application/json
-    PreferredViewingLanguage:
-      name: X-SAP-PVL
-      in: header
-      required: false
-      description: Preferred viewing language for localized content
-      schema:
-        type: string
-        example: en
+    InfostoreEntryList:
+      type: object
+      description: A collection of infostore entries
+      properties:
+        entries:
+          type: array
+          description: List of infostore objects
+          items:
+            $ref: '#/components/schemas/InfostoreEntry'
+          example:
+          - id: 4201
+            cuid: AaGKDkx9w5RMoGANrfKwmn0
+            name: Report Samples
+            type: Folder
+            description: Sample Crystal Reports
+            uri: /biprws/infostore/4201
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     sapLogonToken:
       type: apiKey

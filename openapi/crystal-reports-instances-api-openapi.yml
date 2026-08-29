@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: SAP Crystal Reports RESTful Web Services Authentication Instances API
   description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
@@ -96,27 +96,6 @@ paths:
       x-microcks-operation:
         delay: 500
 components:
-  parameters:
-    ReportId:
-      name: reportId
-      in: path
-      required: true
-      description: Infostore object ID of the Crystal Report
-      schema:
-        type: integer
-        example: 5765
-    Accept:
-      name: Accept
-      in: header
-      required: false
-      description: Desired response format
-      schema:
-        type: string
-        enum:
-        - application/json
-        - application/xml
-        default: application/json
-        example: application/json
   schemas:
     ReportInstance:
       type: object
@@ -134,18 +113,16 @@ components:
           type: string
           description: Unique identifier of the instance
           example: abc123
-    Error:
+    InstanceForm:
       type: object
-      description: Error response from the API
+      description: Form for creating a transient report instance
       properties:
-        error_code:
-          type: integer
-          description: Numeric error code
-          example: 401
-        message:
-          type: string
-          description: Human-readable error message
-          example: Authentication token is missing or expired
+        SuppressData:
+          type: boolean
+          description: Whether to suppress data retrieval during instance creation
+          example: false
+        ConnectionInfo:
+          $ref: '#/components/schemas/ConnectionInfo'
     ConnectionInfo:
       type: object
       description: Database connection information for the report instance
@@ -166,16 +143,39 @@ components:
           type: string
           description: Database name
           example: SalesDB
-    InstanceForm:
+    Error:
       type: object
-      description: Form for creating a transient report instance
+      description: Error response from the API
       properties:
-        SuppressData:
-          type: boolean
-          description: Whether to suppress data retrieval during instance creation
-          example: false
-        ConnectionInfo:
-          $ref: '#/components/schemas/ConnectionInfo'
+        error_code:
+          type: integer
+          description: Numeric error code
+          example: 401
+        message:
+          type: string
+          description: Human-readable error message
+          example: Authentication token is missing or expired
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: false
+      description: Desired response format
+      schema:
+        type: string
+        enum:
+        - application/json
+        - application/xml
+        default: application/json
+        example: application/json
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
   responses:
     Unauthorized:
       description: Authentication required or token expired
