@@ -1,7 +1,7 @@
 aid: crystal-reports
 name: Crystal Reports
-description: APIs and resources for Crystal Reports, a business intelligence application for designing and generating reports
-  from various data sources.
+description: APIs and resources for Crystal Reports, a business intelligence application for designing
+  and generating reports from various data sources.
 type: Index
 deliveryModel:
   model: saas
@@ -32,7 +32,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/crystal-reports.png
 url: https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-05-19'
+modified: '2026-09-16'
 apis:
 - name: Crystal Reports SDK
   description: Software Development Kit for embedding Crystal Reports into applications.
@@ -137,7 +137,7 @@ apis:
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
 - aid: crystal-reports:crystal-reports-reports-api
-  name: Crystal Reports Reports API
+  name: Crystal Reports API
   description: Report summary and URI information
   humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
   baseURL: https://api.sap.com/crystal/v1
