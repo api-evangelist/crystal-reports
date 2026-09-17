@@ -122,20 +122,6 @@ apis:
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
-- aid: crystal-reports:crystal-reports-odata-api
-  name: Crystal Reports OData API
-  description: OData data service for report row and summary data
-  humanURL: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS
-  baseURL: https://api.sap.com/crystal/v1
-  tags:
-  - OData
-  properties:
-  - type: OpenAPI
-    url: openapi/crystal-reports-odata-api-openapi.yml
-  - type: Documentation
-    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
-  - type: Authentication
-    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
 - aid: crystal-reports:crystal-reports-reports-api
   name: Crystal Reports API
   description: Report summary and URI information
@@ -160,6 +146,20 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/crystal-reports-repository-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/authentication
+- aid: crystal-reports:crystal-reports-odata-api
+  name: Crystal Reports O Data API
+  description: OData data service for report row and summary data
+  humanURL: https://help.sap.com/docs/CRYSTAL_REPORTS_SDK
+  baseURL: https://www.sap.com/sdk/crystal
+  tags:
+  - OData
+  properties:
+  - type: OpenAPI
+    url: openapi/crystal-reports-odata-api-openapi.yml
   - type: Documentation
     url: https://help.sap.com/docs/SAP_CRYSTAL_REPORTS/api
   - type: Authentication
