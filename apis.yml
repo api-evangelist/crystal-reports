@@ -40,6 +40,11 @@ apis:
   baseURL: https://www.sap.com/sdk/crystal
   tags:
   - .NET
+  - Embeddings
+  - Java
+  - SDK
+  tags_raw:
+  - .NET
   - Embedding
   - Java
   - SDK
@@ -56,6 +61,11 @@ apis:
   humanURL: https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM
   baseURL: https://server:port/biprws
   tags:
+  - Administration
+  - BI Platform
+  - Report Management
+  - Servers
+  tags_raw:
   - Administration
   - BI Platform
   - Report Management
