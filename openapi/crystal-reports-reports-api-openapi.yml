@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: SAP Crystal RESTful Web Services Authentication Reports API
+  title: SAP Crystal RESTful Web Services Reports API
   description: RESTful web services API for SAP Crystal Reports, providing access to report viewing, exporting, data retrieval via OData, and repository navigation through the SAP BusinessObjects BI Platform.
   version: 4.3.0
   contact:
@@ -89,18 +89,6 @@ components:
         type: string
         example: en
   schemas:
-    FileFormatVersion:
-      type: object
-      description: Crystal Report file format version
-      properties:
-        major_version:
-          type: integer
-          description: Major version number
-          example: 14
-        minor_version:
-          type: integer
-          description: Minor version number
-          example: 3
     ReportSummary:
       type: object
       description: Summary information about a Crystal Report
@@ -148,6 +136,18 @@ components:
           type: string
           description: URI for editing or managing the report
           example: /biprws/infostore/5765/rpt/instance
+    FileFormatVersion:
+      type: object
+      description: Crystal Report file format version
+      properties:
+        major_version:
+          type: integer
+          description: Major version number
+          example: 14
+        minor_version:
+          type: integer
+          description: Minor version number
+          example: 3
     Error:
       type: object
       description: Error response from the API

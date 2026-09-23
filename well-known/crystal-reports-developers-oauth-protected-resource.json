@@ -1,0 +1,12 @@
+{
+  "resource": "https://developers.sap.com/mcp-auth",
+  "authorization_servers": [
+    "https://developers.sap.com"
+  ],
+  "scopes_supported": [
+    "tutorials-prod!t676072.Tutorial.MCP"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}
