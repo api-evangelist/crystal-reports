@@ -127,6 +127,15 @@ paths:
       x-microcks-operation:
         delay: 1000
 components:
+  parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
   schemas:
     Error:
       type: object
@@ -147,15 +156,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    ReportId:
-      name: reportId
-      in: path
-      required: true
-      description: Infostore object ID of the Crystal Report
-      schema:
-        type: integer
-        example: 5765
   securitySchemes:
     sapLogonToken:
       type: apiKey

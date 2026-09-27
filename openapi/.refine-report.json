@@ -12,23 +12,20 @@
     "crystal-reports-reports-api-openapi.yml",
     "crystal-reports-repository-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "crystal-reports-rest-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "superseded outputs removed: crystal-reports-o-data-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 9 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "crystal-reports-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "crystal-reports-export-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "crystal-reports-instances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "crystal-reports-metadata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "crystal-reports-o-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "crystal-reports-odata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "crystal-reports-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "crystal-reports-repository-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
