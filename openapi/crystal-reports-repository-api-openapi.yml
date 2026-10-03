@@ -108,22 +108,6 @@ paths:
         delay: 150
 components:
   schemas:
-    InfostoreEntryList:
-      type: object
-      description: A collection of infostore entries
-      properties:
-        entries:
-          type: array
-          description: List of infostore objects
-          items:
-            $ref: '#/components/schemas/InfostoreEntry'
-          example:
-          - id: 4201
-            cuid: AaGKDkx9w5RMoGANrfKwmn0
-            name: Report Samples
-            type: Folder
-            description: Sample Crystal Reports
-            uri: /biprws/infostore/4201
     InfostoreEntry:
       type: object
       description: An object in the infostore repository (folder, report, etc.)
@@ -164,7 +148,31 @@ components:
           type: string
           description: Human-readable error message
           example: Authentication token is missing or expired
+    InfostoreEntryList:
+      type: object
+      description: A collection of infostore entries
+      properties:
+        entries:
+          type: array
+          description: List of infostore objects
+          items:
+            $ref: '#/components/schemas/InfostoreEntry'
+          example:
+          - id: 4201
+            cuid: AaGKDkx9w5RMoGANrfKwmn0
+            name: Report Samples
+            type: Folder
+            description: Sample Crystal Reports
+            uri: /biprws/infostore/4201
   parameters:
+    PreferredViewingLanguage:
+      name: X-SAP-PVL
+      in: header
+      required: false
+      description: Preferred viewing language for localized content
+      schema:
+        type: string
+        example: en
     FolderId:
       name: folderId
       in: path
@@ -185,14 +193,6 @@ components:
         - application/xml
         default: application/json
         example: application/json
-    PreferredViewingLanguage:
-      name: X-SAP-PVL
-      in: header
-      required: false
-      description: Preferred viewing language for localized content
-      schema:
-        type: string
-        example: en
   responses:
     Unauthorized:
       description: Authentication required or token expired
