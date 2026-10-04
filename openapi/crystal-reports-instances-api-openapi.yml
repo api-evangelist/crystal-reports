@@ -97,6 +97,22 @@ paths:
         delay: 500
 components:
   schemas:
+    ReportInstance:
+      type: object
+      description: A transient report instance
+      properties:
+        report_name:
+          type: string
+          description: Name of the report
+          example: WorldSalesReport.rpt
+        resource:
+          type: string
+          description: URI of the created instance resource
+          example: /biprws/infostore/5765/rpt/instance/abc123
+        id:
+          type: string
+          description: Unique identifier of the instance
+          example: abc123
     ConnectionInfo:
       type: object
       description: Database connection information for the report instance
@@ -117,22 +133,6 @@ components:
           type: string
           description: Database name
           example: SalesDB
-    ReportInstance:
-      type: object
-      description: A transient report instance
-      properties:
-        report_name:
-          type: string
-          description: Name of the report
-          example: WorldSalesReport.rpt
-        resource:
-          type: string
-          description: URI of the created instance resource
-          example: /biprws/infostore/5765/rpt/instance/abc123
-        id:
-          type: string
-          description: Unique identifier of the instance
-          example: abc123
     Error:
       type: object
       description: Error response from the API
@@ -156,6 +156,14 @@ components:
         ConnectionInfo:
           $ref: '#/components/schemas/ConnectionInfo'
   parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
     Accept:
       name: Accept
       in: header
@@ -168,14 +176,6 @@ components:
         - application/xml
         default: application/json
         example: application/json
-    ReportId:
-      name: reportId
-      in: path
-      required: true
-      description: Infostore object ID of the Crystal Report
-      schema:
-        type: integer
-        example: 5765
   responses:
     Unauthorized:
       description: Authentication required or token expired

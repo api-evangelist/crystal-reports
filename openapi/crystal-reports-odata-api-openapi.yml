@@ -438,15 +438,6 @@ paths:
         delay: 200
 components:
   schemas:
-    ODataRow:
-      type: object
-      description: A single row of report data. Properties are dynamic and correspond to the fields defined in the report.
-      additionalProperties: true
-      example:
-        CustomerName: City Cyclists
-        Country: USA
-        OrderAmount: 1250.5
-        OrderDate: '2023-11-15'
     GrandTotalCollection:
       type: object
       description: Collection of grand total summary entries
@@ -472,26 +463,6 @@ components:
           type: string
           description: Value of the field
           example: City Cyclists
-    ODataServiceDocument:
-      type: object
-      description: OData service document listing available collections
-      properties:
-        EntitySets:
-          type: array
-          description: Available entity set collections
-          items:
-            type: string
-          example:
-          - Rows
-          - GrandTotals
-    GrandTotal:
-      type: object
-      description: Grand total summary data. Properties are dynamic and correspond to the summary fields defined in the report.
-      additionalProperties: true
-      example:
-        SumOfOrderAmount: 548290.75
-        CountOfOrders: 1542
-        AverageOrderAmount: 355.57
     ODataRowCollection:
       type: object
       description: A collection of OData report data rows
@@ -530,7 +501,44 @@ components:
           type: string
           description: Human-readable error message
           example: Authentication token is missing or expired
+    ODataServiceDocument:
+      type: object
+      description: OData service document listing available collections
+      properties:
+        EntitySets:
+          type: array
+          description: Available entity set collections
+          items:
+            type: string
+          example:
+          - Rows
+          - GrandTotals
+    GrandTotal:
+      type: object
+      description: Grand total summary data. Properties are dynamic and correspond to the summary fields defined in the report.
+      additionalProperties: true
+      example:
+        SumOfOrderAmount: 548290.75
+        CountOfOrders: 1542
+        AverageOrderAmount: 355.57
+    ODataRow:
+      type: object
+      description: A single row of report data. Properties are dynamic and correspond to the fields defined in the report.
+      additionalProperties: true
+      example:
+        CustomerName: City Cyclists
+        Country: USA
+        OrderAmount: 1250.5
+        OrderDate: '2023-11-15'
   parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
     Accept:
       name: Accept
       in: header
@@ -543,14 +551,6 @@ components:
         - application/xml
         default: application/json
         example: application/json
-    ReportId:
-      name: reportId
-      in: path
-      required: true
-      description: Infostore object ID of the Crystal Report
-      schema:
-        type: integer
-        example: 5765
   responses:
     Unauthorized:
       description: Authentication required or token expired

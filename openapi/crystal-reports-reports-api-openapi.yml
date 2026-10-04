@@ -132,6 +132,22 @@ components:
           description: Human-readable error message
           example: Authentication token is missing or expired
   parameters:
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      description: Infostore object ID of the Crystal Report
+      schema:
+        type: integer
+        example: 5765
+    PreferredViewingLanguage:
+      name: X-SAP-PVL
+      in: header
+      required: false
+      description: Preferred viewing language for localized content
+      schema:
+        type: string
+        example: en
     Accept:
       name: Accept
       in: header
@@ -144,22 +160,6 @@ components:
         - application/xml
         default: application/json
         example: application/json
-    PreferredViewingLanguage:
-      name: X-SAP-PVL
-      in: header
-      required: false
-      description: Preferred viewing language for localized content
-      schema:
-        type: string
-        example: en
-    ReportId:
-      name: reportId
-      in: path
-      required: true
-      description: Infostore object ID of the Crystal Report
-      schema:
-        type: integer
-        example: 5765
   responses:
     Unauthorized:
       description: Authentication required or token expired
