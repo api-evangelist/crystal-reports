@@ -75,3 +75,28 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  - subscription
+  units:
+  - seat
+  plans:
+  - name: SAP Crystal Reports 2020
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - per-use
+  - name: SAP Crystal Server / BI Platform
+    access: enterprise
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - year

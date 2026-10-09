@@ -127,10 +127,8 @@ apis:
 unitEconomics:
   - name: Cost per Designer Seat
     metric: billed_cost / designer_seats
-    target: TBD
   - name: Cost per Active Report Author
     metric: billed_cost / active_authors
-    target: TBD
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
