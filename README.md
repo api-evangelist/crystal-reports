@@ -1,4 +1,4 @@
-# Crystal Reports (crystal-reports)
+# Crystal Reports
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,105 +64,206 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-SAP Crystal Reports is a business intelligence application for designing and generating formatted reports from various data sources including SQL databases, spreadsheets, and XML.
+APIs and resources for Crystal Reports, a business intelligence application for designing and generating reports from various data sources.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/crystal-reports/refs/heads/main/apis.yml)
+**Areas:** Business Intelligence · Crystal Reports · Data Analytics · Enterprise Software · Reporting · SAP
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Crystal Reports on APIs.io
 
-## Tags:
+Everything profiled for Crystal Reports is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/crystal-reports/](https://apis.io/providers/crystal-reports/)** — or go straight to one of the APIs or properties below.
 
- - Business Intelligence, Data Visualization, Reporting, SAP
+### APIs (9)
 
-## Timestamps
+- [Crystal Reports SDK](https://apis.io/apis/crystal-reports/sdk/) — Software Development Kit for embedding Crystal Reports into applications.
+- [Crystal Reports Server REST API](https://apis.io/apis/crystal-reports/server-rest-api/) — API for Crystal Reports Server administration and report management.
+- [Crystal Reports Authentication API](https://apis.io/apis/crystal-reports/crystal-reports-authentication-api/) — Logon and session management
+- [Crystal Reports Export API](https://apis.io/apis/crystal-reports/crystal-reports-export-api/) — Report export to various formats
+- [Crystal Reports Instances API](https://apis.io/apis/crystal-reports/crystal-reports-instances-api/) — Transient report instance management
+- [Crystal Reports Metadata API](https://apis.io/apis/crystal-reports/crystal-reports-metadata-api/) — Report structure and metadata
+- [Crystal Reports API](https://apis.io/apis/crystal-reports/crystal-reports-reports-api/) — Report summary and URI information
+- [Crystal Reports Repository API](https://apis.io/apis/crystal-reports/crystal-reports-repository-api/) — Infostore repository navigation and folder browsing
+- [Crystal Reports O Data API](https://apis.io/apis/crystal-reports/crystal-reports-odata-api/) — OData data service for report row and summary data
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-17
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-3 APIs: Crystal Reports REST API, Crystal Reports SDK, Crystal Reports Server REST API.
+#### MCP servers (1)
 
-## Features
+Model Context Protocol servers that expose the API to agents.
 
-| Name | Description |
-|------|-------------|
-| Report Generation | Generate formatted reports from databases, spreadsheets, and XML. |
-| Report Viewing | Embed report viewers in web and desktop applications. |
-| Report Scheduling | Schedule automated report generation and delivery. |
-| Parameter Prompts | Pass dynamic parameters to filter report content. |
-| Export Formats | Export to PDF, Excel, Word, CSV, XML, and other formats. |
-| Sub-Reports | Embed linked sub-reports for drill-down capabilities. |
-| Cross-Tab Reports | Generate pivot-table style cross-tabulation reports. |
-| Charting | Create charts and graphs within reports. |
-| Data Source Connectivity | Connect to SQL Server, Oracle, SAP HANA, ODBC, JDBC. |
-| Report Server Management | Manage server instances, folders, users, and security. |
+- [crystal-reports](https://apis.io/servers/crystal-reports/crystal-reports/)
 
-## Use Cases
+#### Agentic access (1)
 
-| Name | Description |
-|------|-------------|
-| Financial Reporting | Financial statements, balance sheets, and P&L reports. |
-| Operational Dashboards | Operational reports for manufacturing and logistics. |
-| Compliance Reports | Regulatory compliance reports for auditing. |
-| Customer Invoicing | Formatted invoices and statements from billing data. |
-| HR Analytics | Employee reports, headcount, and compensation summaries. |
-| Embedded Reporting | Embed Crystal Reports viewer in custom applications. |
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Solutions
+- [Crystal Reports Agentic Access](https://apis.io/agentic-access/crystal-reports/crystal-reports-agentic-access/)
 
-| Name | Description |
-|------|-------------|
-| SAP Crystal Reports | Desktop report designer for creating templates. |
-| SAP Crystal Reports Server | Server platform for scheduling and distributing reports. |
-| SAP BusinessObjects BI | Enterprise BI platform with Crystal Reports integration. |
+#### JSON Schema (23)
 
-## Artifacts
+The data models the API reads and writes.
 
-### OpenAPI
+- [ConnectionInfo](https://apis.io/schemas/crystal-reports/crystal-reports-connection-info/)
+- [DataSource](https://apis.io/schemas/crystal-reports/crystal-reports-data-source/)
+- [Error](https://apis.io/schemas/crystal-reports/crystal-reports-error/)
+- [FileFormatVersion](https://apis.io/schemas/crystal-reports/crystal-reports-file-format-version/)
+- [Formula](https://apis.io/schemas/crystal-reports/crystal-reports-formula/)
+- [GrandTotalCollection](https://apis.io/schemas/crystal-reports/crystal-reports-grand-total-collection/)
+- [GroupCondition](https://apis.io/schemas/crystal-reports/crystal-reports-group-condition/)
+- [InfostoreEntry](https://apis.io/schemas/crystal-reports/crystal-reports-infostore-entry/)
+- [InfostoreEntryList](https://apis.io/schemas/crystal-reports/crystal-reports-infostore-entry-list/)
+- [InstanceForm](https://apis.io/schemas/crystal-reports/crystal-reports-instance-form/)
+- [LogonRequest](https://apis.io/schemas/crystal-reports/crystal-reports-logon-request/)
+- [LogonResponse](https://apis.io/schemas/crystal-reports/crystal-reports-logon-response/)
+- [ODataFieldValue](https://apis.io/schemas/crystal-reports/crystal-reports-o-data-field-value/)
+- [ODataRowCollection](https://apis.io/schemas/crystal-reports/crystal-reports-o-data-row-collection/)
+- [ODataServiceDocument](https://apis.io/schemas/crystal-reports/crystal-reports-o-data-service-document/)
+- [ReportInstance](https://apis.io/schemas/crystal-reports/crystal-reports-report-instance/)
+- [ReportParameter](https://apis.io/schemas/crystal-reports/crystal-reports-report-parameter/)
+- [ReportStructure](https://apis.io/schemas/crystal-reports/crystal-reports-report-structure/)
+- [ReportSummary](https://apis.io/schemas/crystal-reports/crystal-reports-report-summary/)
+- [RunningTotal](https://apis.io/schemas/crystal-reports/crystal-reports-running-total/)
+- [Subreport](https://apis.io/schemas/crystal-reports/crystal-reports-subreport/)
+- [SummaryField](https://apis.io/schemas/crystal-reports/crystal-reports-summary-field/)
+- [UsedField](https://apis.io/schemas/crystal-reports/crystal-reports-used-field/)
 
-- [Crystal Reports REST API](openapi/crystal-reports-rest-api.yaml) — 24 operations, 25 schemas (generated from official SAP PDF documentation)
+#### JSON Structure (23)
 
-### JSON Schema
+Data models expressed in JSON Structure.
 
-23 standalone JSON Schema files in [json-schema/](json-schema/).
+- [Crystal Reports Connection Info Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-connection-info-structure/)
+- [Crystal Reports Data Source Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-data-source-structure/)
+- [Crystal Reports Error Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-error-structure/)
+- [Crystal Reports File Format Version Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-file-format-version-structure/)
+- [Crystal Reports Formula Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-formula-structure/)
+- [Crystal Reports Grand Total Collection Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-grand-total-collection-structure/)
+- [Crystal Reports Group Condition Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-group-condition-structure/)
+- [Crystal Reports Infostore Entry List Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-infostore-entry-list-structure/)
+- [Crystal Reports Infostore Entry Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-infostore-entry-structure/)
+- [Crystal Reports Instance Form Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-instance-form-structure/)
+- [Crystal Reports Logon Request Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-logon-request-structure/)
+- [Crystal Reports Logon Response Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-logon-response-structure/)
+- [Crystal Reports O Data Field Value Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-o-data-field-value-structure/)
+- [Crystal Reports O Data Row Collection Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-o-data-row-collection-structure/)
+- [Crystal Reports O Data Service Document Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-o-data-service-document-structure/)
+- [Crystal Reports Report Instance Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-report-instance-structure/)
+- [Crystal Reports Report Parameter Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-report-parameter-structure/)
+- [Crystal Reports Report Structure Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-report-structure-structure/)
+- [Crystal Reports Report Summary Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-report-summary-structure/)
+- [Crystal Reports Running Total Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-running-total-structure/)
+- [Crystal Reports Subreport Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-subreport-structure/)
+- [Crystal Reports Summary Field Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-summary-field-structure/)
+- [Crystal Reports Used Field Structure](https://apis.io/json-structure/crystal-reports/crystal-reports-used-field-structure/)
 
-### JSON Structure
+#### JSON-LD (1)
 
-23 JSON Structure files in [json-structure/](json-structure/).
+Linked-data contexts for the provider's vocabulary.
 
-### JSON-LD
+- [Crystal Reports Context](https://apis.io/jsonld/crystal-reports/crystal-reports-context/)
 
-- [Crystal Reports Context](json-ld/crystal-reports-context.jsonld) — 23 types, 54 properties
+#### Vocabulary (1)
 
-### Examples
+The provider's domain terms, defined.
 
-23 example JSON files in [examples/](examples/).
+- [Crystal Reports Vocabulary](https://apis.io/vocabularies/crystal-reports/crystal-reports-vocabulary/)
 
-## Capabilities
+#### Examples (23)
 
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
+Example requests and responses.
 
-### Shared Per-API Definitions
+- [Crystal Reports Connection Info Example](https://apis.io/examples/crystal-reports/crystal-reports-connection-info-example/)
+- [Crystal Reports Data Source Example](https://apis.io/examples/crystal-reports/crystal-reports-data-source-example/)
+- [Crystal Reports Error Example](https://apis.io/examples/crystal-reports/crystal-reports-error-example/)
+- [Crystal Reports File Format Version Example](https://apis.io/examples/crystal-reports/crystal-reports-file-format-version-example/)
+- [Crystal Reports Formula Example](https://apis.io/examples/crystal-reports/crystal-reports-formula-example/)
+- [Crystal Reports Grand Total Collection Example](https://apis.io/examples/crystal-reports/crystal-reports-grand-total-collection-example/)
+- [Crystal Reports Group Condition Example](https://apis.io/examples/crystal-reports/crystal-reports-group-condition-example/)
+- [Crystal Reports Infostore Entry Example](https://apis.io/examples/crystal-reports/crystal-reports-infostore-entry-example/)
+- [Crystal Reports Infostore Entry List Example](https://apis.io/examples/crystal-reports/crystal-reports-infostore-entry-list-example/)
+- [Crystal Reports Instance Form Example](https://apis.io/examples/crystal-reports/crystal-reports-instance-form-example/)
+- [Crystal Reports Logon Request Example](https://apis.io/examples/crystal-reports/crystal-reports-logon-request-example/)
+- [Crystal Reports Logon Response Example](https://apis.io/examples/crystal-reports/crystal-reports-logon-response-example/)
+- [Crystal Reports O Data Field Value Example](https://apis.io/examples/crystal-reports/crystal-reports-o-data-field-value-example/)
+- [Crystal Reports O Data Row Collection Example](https://apis.io/examples/crystal-reports/crystal-reports-o-data-row-collection-example/)
+- [Crystal Reports O Data Service Document Example](https://apis.io/examples/crystal-reports/crystal-reports-o-data-service-document-example/)
+- [Crystal Reports Report Instance Example](https://apis.io/examples/crystal-reports/crystal-reports-report-instance-example/)
+- [Crystal Reports Report Parameter Example](https://apis.io/examples/crystal-reports/crystal-reports-report-parameter-example/)
+- [Crystal Reports Report Structure Example](https://apis.io/examples/crystal-reports/crystal-reports-report-structure-example/)
+- [Crystal Reports Report Summary Example](https://apis.io/examples/crystal-reports/crystal-reports-report-summary-example/)
+- [Crystal Reports Running Total Example](https://apis.io/examples/crystal-reports/crystal-reports-running-total-example/)
+- [Crystal Reports Subreport Example](https://apis.io/examples/crystal-reports/crystal-reports-subreport-example/)
+- [Crystal Reports Summary Field Example](https://apis.io/examples/crystal-reports/crystal-reports-summary-field-example/)
+- [Crystal Reports Used Field Example](https://apis.io/examples/crystal-reports/crystal-reports-used-field-example/)
 
-- [Reporting Services](capabilities/shared/reporting.yaml) — 12 operations covering authentication, repository, reports, metadata, instances, export, and OData
+#### Collections (7)
 
-### Workflow Capabilities
+Postman and Open Collection request collections.
 
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Report Management](capabilities/report-management.yaml) | All reporting services | 11 | Report Developer / BI Analyst |
+- [SAP Crystal Reports RESTful Web Services Authentication API](https://apis.io/collections/crystal-reports/open-crystal-reports-authentication-api/)
+- [SAP Crystal Reports RESTful Web Services Authentication Export API](https://apis.io/collections/crystal-reports/open-crystal-reports-export-api/)
+- [SAP Crystal Reports RESTful Web Services Authentication Instances API](https://apis.io/collections/crystal-reports/open-crystal-reports-instances-api/)
+- [SAP Crystal Reports RESTful Web Services Authentication Metadata API](https://apis.io/collections/crystal-reports/open-crystal-reports-metadata-api/)
+- [SAP Crystal Reports RESTful Web Services Authentication OData API](https://apis.io/collections/crystal-reports/open-crystal-reports-odata-api/)
+- [SAP Crystal RESTful Web Services Authentication Reports API](https://apis.io/collections/crystal-reports/open-crystal-reports-reports-api/)
+- [SAP Crystal Reports RESTful Web Services Authentication Repository API](https://apis.io/collections/crystal-reports/open-crystal-reports-repository-api/)
 
-## Vocabulary
+#### Governance rules (2)
 
-- [Crystal Reports Vocabulary](vocabulary/crystal-reports-vocabulary.yaml) — 7 resources, 3 APIs, 3 domains, 4 personas
+Spectral rulesets for the provider's contracts.
 
-## Rules
+- [Crystal Reports — jsonschema rules](https://apis.io/rules/crystal-reports/crystal-reports-jsonschema-spectral-rules/)
+- [Crystal Reports API Rules](https://apis.io/rules/crystal-reports/crystal-reports-spectral-rules/)
 
-- [Crystal Reports Spectral Rules](rules/crystal-reports-spectral-rules.yml) — 16 rules
+#### Security (3)
 
-## Maintainers
+Authentication, trust centre, and vulnerability disclosure.
 
-**FN:** Kin Lane
+- [Crystal Reports Authentication](https://apis.io/security/crystal-reports/crystal-reports-authentication/)
+- [Crystal Reports Domain Security](https://apis.io/security/crystal-reports/crystal-reports-domain-security/)
+- [Crystal Reports Vulnerability Disclosure](https://apis.io/security/crystal-reports/crystal-reports-vulnerability-disclosure/)
 
-**Email:** kin@apievangelist.com
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Crystal Reports Plans Pricing](https://apis.io/plans/crystal-reports/crystal-reports-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Crystal Reports Rate Limits](https://apis.io/rate-limits/crystal-reports/crystal-reports-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Crystal Reports Finops](https://apis.io/finops/crystal-reports/crystal-reports-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Support](https://support.sap.com/crystal-reports)
+- [Blog](https://blogs.sap.com/tags/73554900100800000134/)
+- [Terms of service](https://www.sap.com/about/legal/terms-of-use.html)
+- [Privacy policy](https://www.sap.com/about/legal/privacy.html)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Crystal Reports: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/crystal-reports/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
